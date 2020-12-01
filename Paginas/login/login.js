@@ -1,29 +1,29 @@
- /*window.onload = function () { 
-      document.forms.formCadastro.onsubmit = validaForm; 
+ window.onload = function () { 
+      document.forms.formLogin.onsubmit = validaForm; 
     }
 
     function validaForm(e) {
       let form = e.target; //Dá acesso ao botão disparado
       let formValido = true; //Indica se o form é válido
 
-      const spanUsuario = form.usuario.nextElementSibling; 
+      const spanEmail = form.email.nextElementSibling; 
       const spanSenha = form.senha.nextElementSibling; 
-      const spanEmail = form.email.nextElementSibling;
 
-      if (form.usuario.value === "") { 
-        spanUsuario.textContent = "O usuário deve ser preenchido"; 
+      if (form.email.value === "") {
+        console.log(form.email.value)
+        spanEmail.textContent = "O email é obrigatório"; 
         formValido = false; 
       }
-
+      
       if (form.senha.value === "") { 
-        spanSenha.textContent = "A senha deve ser preenchida"; 
+        spanSenha.textContent = "A senha é obrigatória"; 
         formValido = false;
       }
 
-      if (form.email.value === "") {
-        spanEmail.textContent = "O email deve ser preenchido"; 
-        formValido = false; 
+      if (form.senha .value.length< 6) {
+        spanSenha.textContent = "A senha está incorreta"; 
+        formValido = false;
       }
 
       return formValido; 
-    }*/
+    }
