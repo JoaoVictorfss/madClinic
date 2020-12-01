@@ -1,4 +1,4 @@
- window.onload = function () { 
+ /*window.onload = function () { 
       document.forms.formCadastro.onsubmit = validaForm; 
     }
 
@@ -26,4 +26,4 @@
       }
 
       return formValido; 
-    }
+    }*/
