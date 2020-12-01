@@ -1,13 +1,14 @@
 <?php
     // $user = "funcionario";
     // $user = "medico";
+    $test = $_GET["test"];
 ?>
 
 <nav>
     <div class="container">
         <ul>
-            <li class="col active"><a href="#">Home</a></li>
-            <li class="col"><a href="#">Galeria</a></li>
+            <li class="col"><a href="/">Home</a></li>
+            <li class="col"><a href="galeria.php">Galeria</a></li>
             <li class="col"><a href="#">Novo endereço</a></li>
             <li class="col"><a href="#">Login</a></li>
             <li class="col"><a href="#">Agendamento</a></li>
@@ -24,6 +25,8 @@ HTML;
                     if($user == "medico")
                         echo '<li class="col"><a href="#">Listar meus Agendamentos</a></li>';
                 }
+                if($test)
+                    echo "<h1>$test</h1>"
             ?>
         </ul>
     </div>
