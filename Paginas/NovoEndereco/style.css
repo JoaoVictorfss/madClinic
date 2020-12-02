@@ -1,9 +1,12 @@
 body {
   background-color: #e2e3e4;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 header {
+  width: 100%;
   text-align: center;
   padding: 20px;
   font-size: 30px;
@@ -23,9 +26,9 @@ main {
   padding: 15px;
   border: 0.5px solid rgb(190, 189, 189);
   border-radius: 5px;
-    color: #4a4b4d;
+  color: #4a4b4d;
 }
 
-main h2{
+main h2 {
   margin-bottom: 16px;
 }
