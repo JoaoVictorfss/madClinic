@@ -4,6 +4,15 @@ footer {
     padding: 20px;
 }
 
+.contact-info {
+    width: 50%;
+    display: inline-block;
+}
+
+.social_networks {
+    display: inline-block;
+}
+
 footer svg {
     margin: 20px 10px;
     /*adicionar borda inferior brilhante*/
@@ -19,4 +28,10 @@ footer h6, footer h5 {
 h6:hover, footer h5 {
     color: black;
     background-color: white;
+}
+
+address {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
