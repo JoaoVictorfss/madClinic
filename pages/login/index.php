@@ -27,7 +27,7 @@
   <div class="container">
     <main>
       <div class="loginBox">
-        <form name="formLogin" class="form" action="./login/processaLogin.php" method="POST">
+        <form name="formLogin" class="form" action="./processaLogin.php" method="POST">
           <div class="form-floating mb-3">
             <input class="form-control" type="email" id="email" name="email" placeholder="seu e-mail">
             <span></span>

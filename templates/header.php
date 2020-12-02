@@ -1,5 +1,5 @@
 <header>
     <div class="container">
-        <h1>MAD Clinic</h1>
+        <img src="../../images/mad-clinic_logo.png" alt="logo da clinica">
     </div>
 </header>

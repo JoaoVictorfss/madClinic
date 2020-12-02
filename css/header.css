@@ -1,6 +1,10 @@
 header {
-    color: white;
     background-color: black;
     padding: 10px;
-    text-align: center;
+}
+
+header img  {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
