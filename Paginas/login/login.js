@@ -10,7 +10,6 @@
       const spanSenha = form.senha.nextElementSibling; 
 
       if (form.email.value === "") {
-        console.log(form.email.value)
         spanEmail.textContent = "O email é obrigatório"; 
         formValido = false; 
       }
