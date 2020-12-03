@@ -17,12 +17,11 @@
       if (form.senha.value === "") { 
         spanSenha.textContent = "A senha é obrigatória"; 
         formValido = false;
-      }
-
-      if (form.senha .value.length< 6) {
+      }else if (form.senha .value.length< 6) {
         spanSenha.textContent = "A senha está incorreta"; 
         formValido = false;
       }
-
+       
+     if (formValido) window.location.assign("./pages/home")
       return formValido; 
     }

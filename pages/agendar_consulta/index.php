@@ -26,27 +26,27 @@
 
   <div class="container mt-3">
     <main>
-      <h2>Endereço</h2>
+      <h2>Agendamento</h2>
       <form name="formEndereco" class="row g-2" action="./agendarConsulta.php" method="POST">
-        <div class="col-lg-4 form-floating ">
+        <div class="col-md-4 form-floating ">
           <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
           <span></span>
           <label for="nome">Nome</label>
         </div>
 
-        <div class="col-lg-4 form-floating ">
+        <div class="col-md-4 form-floating ">
           <input type="email" class="form-control" id="email" name="email" placeholder="Email">
           <span></span>
           <label for="email">Email</label>
         </div>
 
-        <div class="col-lg-4 form-floating ">
+        <div class="col-md-4 form-floating ">
           <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
           <span></span>
           <label for="telefone">Telefone</label>
         </div>
 
-        <div class="col-sm-6 form-floating ">
+        <div class="col-md-6 form-floating ">
           <select id="especialidade" class="form-select" required>
             <option selected value="">Opção 1</option>
             <option value="">Opção 2</option>
@@ -55,7 +55,7 @@
           <label for="especialidade" class="form-label">Especialidade</label>
         </div>
 
-         <div class="col-sm-6 form-floating ">
+         <div class="col-md-6 form-floating ">
           <select id="medico" class="form-select" required>
             <option selected value="">Opção 1</option>
             <option value="">Opção 2</option>
@@ -64,13 +64,13 @@
           <label for="medico" class="form-label">Médico</label>
         </div>
 
-        <div class="col form-floating">
+        <div class="col-md-6 form-floating">
             <input type="date" class="form-control" id="data" name="data" placeholder="Data">
             <span></span>
             <label for="data">Data</label>
         </div>
 
-        <div class="col-sm-6 form-floating">
+        <div class="col-md-6 form-floating">
           <select id="hora" class="form-select" required>
             <?php
                 for($i = 8; $i <= 17; $i++)
@@ -81,7 +81,7 @@
         </div>
 
         <div class="col-md-12">
-          <button type="submit" class="btn btn-primary">Agendar
+          <button type="submit" class="btn btn-primary btn-lg">Agendar
           <!-- adicionar svg check -->
           </button>
         </div>

@@ -1,19 +1,19 @@
 nav {
     color: white;
-    background-color: black;
+    background-image: linear-gradient(to top, #0f4488, #3d68a1);
 }
 
 nav li {
     display: inline-block;
-
     text-align: center;
     padding: 5px;
     margin: 5px 5px;
     border-radius: 8px;
-
+    transition: background 0.3s;
 }
 
 nav li:hover {
-    color: black;
+    color: #0f4488;
     background-color: white;
 }
+

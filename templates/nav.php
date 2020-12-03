@@ -7,10 +7,9 @@
 <nav>
     <div class="container">
         <ul>
-            <li class="col"><a href="../home/"/>Home</a></li>
+            <li class="col"><a href="../home/">Home</a></li>
             <li class="col"><a href="../galeria/">Galeria</a></li>
             <li class="col"><a href="../novo_endereco/">Novo endereço</a></li>
-            <li class="col"><a href="../login/">Login</a></li>
             <li class="col"><a href="../agendar_consulta/">Agendamento</a></li>
             <?php
                 if($user == "funcionario" || $user == "medico") {

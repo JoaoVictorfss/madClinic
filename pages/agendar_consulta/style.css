@@ -1,18 +1,8 @@
 body {
-  background-color: #e2e3e4;
+  background-color: #d2e1f0;
   font-weight: bold;
   margin: 0;
   padding: 0;
-}
-
-header {
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  font-size: 30px;
-  background-image: linear-gradient(to right, #727070, #000000);
-  color: #ebe5e5;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 form input~span {
@@ -23,12 +13,11 @@ form input~span {
 }
 
 main {
-  padding: 15px;
-  border: 0.5px solid rgb(190, 189, 189);
+  padding: 20px 50px 50px 30px;
   border-radius: 5px;
-  color: #4a4b4d;
+  color: #414346;
 }
 
 main h2 {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
