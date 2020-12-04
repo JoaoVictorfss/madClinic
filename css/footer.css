@@ -30,6 +30,23 @@ footer h3 {
     border-bottom: 1px solid #ffffff;
 }
 
+footer .sociais{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .sociais span ~ span{
+    margin-left: 10px;
+}
+
 svg{
     border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+    .sociais svg{
+        width: 40px;
+        height: 40px;
+    }
 }
