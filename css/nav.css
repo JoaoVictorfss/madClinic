@@ -1,5 +1,10 @@
-nav {
-    background-image: linear-gradient(to top, #0f4488, #3d68a1);
+.background-nav{
+    background-color: #ffff;
+}
+
+nav{
+    box-shadow: 0 1px 5px #808080;
+    margin-bottom: 7px;
 }
 
 nav ul {

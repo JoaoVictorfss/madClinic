@@ -4,7 +4,7 @@
 $test = $_GET["test"];
 ?>
 
-<nav class="navbar navbar-expand-md navbar-dark">
+<nav class="navbar navbar-expand-md background-nav navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
