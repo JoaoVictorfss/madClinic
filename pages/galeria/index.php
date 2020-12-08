@@ -23,7 +23,7 @@
         include "../../templates/nav.php";
     ?>
 
-    <div class="container">
+    <div class="container my-5" >
     
         <main>
 

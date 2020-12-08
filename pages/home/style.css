@@ -1,5 +1,13 @@
-h2 {
+
+section h3,  h2{
+    color: #467dcf;
+}
+
+h2{
     text-align: center;
-    text-decoration: underline;
-    margin: 20px 0px;
+    margin: 30px;
+}
+
+section p{
+    margin-left: 10px;
 }
