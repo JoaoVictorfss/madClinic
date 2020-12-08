@@ -14,7 +14,7 @@ $login = false;
 HTML; 
             }else{
                 echo  <<< HTML
-                <a  href="../pages/login/">
+                <a  href="../login/">
                     <button class="btn btn-outline-dark">
                      Login
                     </button>

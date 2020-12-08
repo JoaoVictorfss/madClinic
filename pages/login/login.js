@@ -22,6 +22,6 @@
         formValido = false;
       }
        
-      if (formValido) window.history.back();
+      if (formValido)  header("Location: /pages/home/");
       return formValido; 
     }
