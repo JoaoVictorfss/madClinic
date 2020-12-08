@@ -13,17 +13,16 @@ section p{
 }
 
 .descricao{
-    background-image: url("../../images/slide2Menor.jpg");
-    background-size: cover;
-    width: 100%;
-    height: 400px;
-    text-align: center;
+    background-image: url("../../images/descricao.jpg");
 }
 
 .descricao2{
     background-image: url("../../images/descricao2.jpg");
+}
+
+.descricao, .descricao2{
     background-size: cover;
     width: 100%;
     height: 400px;
-    text-align: center;
 }
+
