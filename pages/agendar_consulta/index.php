@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
   <?php
-    include "../../templates/includes.php";
+  include "../../templates/includes.php";
   ?>
   <link rel="stylesheet" href="./style.css">
 
@@ -18,10 +17,10 @@
 </head>
 
 <body>
-  
+
   <?php
-    include "../../templates/header.php";
-    include "../../templates/nav.php";
+  include "../../templates/header.php";
+  include "../../templates/nav.php";
   ?>
 
   <div class="container mt-3">
@@ -55,7 +54,7 @@
           <label for="especialidade" class="form-label">Especialidade</label>
         </div>
 
-         <div class="col-md-6 form-floating ">
+        <div class="col-md-6 form-floating ">
           <select id="medico" class="form-select" required>
             <option selected value="">Opção 1</option>
             <option value="">Opção 2</option>
@@ -65,16 +64,16 @@
         </div>
 
         <div class="col-md-6 form-floating">
-            <input type="date" class="form-control" id="data" name="data" placeholder="Data">
-            <span></span>
-            <label for="data">Data</label>
+          <input type="date" class="form-control" id="data" name="data" placeholder="Data">
+          <span></span>
+          <label for="data">Data</label>
         </div>
 
         <div class="col-md-6 form-floating">
           <select id="hora" class="form-select" required>
             <?php
-                for($i = 8; $i <= 17; $i++)
-                echo "<option value=''> {$i}h</option>";
+            for ($i = 8; $i <= 17; $i++)
+              echo "<option value=''> {$i}h</option>";
             ?>
           </select>
           <label for="hora" class="form-label">Hora</label>
@@ -82,7 +81,7 @@
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-primary btn-lg">Agendar
-          <!-- adicionar svg check -->
+            <!-- adicionar svg check -->
           </button>
         </div>
       </form>
@@ -90,8 +89,10 @@
   </div>
 
   <?php
-    include "../../templates/footer.php";
+  include "../../templates/footer.php";
   ?>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 
 </body>
 

@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
   <?php
-    include "../../templates/includes.php";
+  include "../../templates/includes.php";
   ?>
   <link rel="stylesheet" href="./style.css">
 
@@ -18,10 +17,10 @@
 </head>
 
 <body>
-  
+
   <?php
-    include "../../templates/header.php";
-    include "../../templates/nav.php";
+  include "../../templates/header.php";
+  include "../../templates/nav.php";
   ?>
 
   <div class="container mt-3">
@@ -35,8 +34,7 @@
         </div>
 
         <div class="col-md-8 form-floating ">
-          <input type="text" class="form-control" id="inputLogradouro" name="inputLogradouro"
-            placeholder="Avenida João Naves de Avila">
+          <input type="text" class="form-control" id="inputLogradouro" name="inputLogradouro" placeholder="Avenida João Naves de Avila">
           <span></span>
           <label for="inputLogradouro">Logradouro</label>
         </div>
@@ -88,11 +86,9 @@
 
         <div class="col-md-12">
           <button type="submit" class="btn btn-primary btn-lg">Cadastrar
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path fill-rule="evenodd"
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
           </button>
         </div>
@@ -101,8 +97,10 @@
   </div>
 
   <?php
-    include "../../templates/footer.php";
+  include "../../templates/footer.php";
   ?>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 
 </body>
 
