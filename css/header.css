@@ -14,3 +14,10 @@ header {
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media only screen and (max-width: 600px) {
+ .content img{
+   width: 60%;
+   left: 20%;
+ }
+}
