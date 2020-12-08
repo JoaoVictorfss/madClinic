@@ -4,28 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Bootstrap-->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
   <?php
   include "../../templates/includes.php";
   ?>
+  <title>Mad Clinic - Paciente</title>
 
-  <script src="./endereco.js"></script>
-  <title>MAD Clinic - Cadastrar Endereço</title>
 </head>
 
 <body>
-
   <?php
   include "../../templates/header.php";
   include "../../templates/nav.php";
   ?>
 
-  <div class="container mt-3">
+  <div class="container">
     <main>
-      <h2>Endereço</h2>
-      <form name="formEndereco" class="row g-2" action="./processaEndereco.php" method="POST">
+      <form name="formPaciente" class="row g-2" action="./processaPaciente.php" method="POST">
+        <div class="col-md-6 form-floating">
+          <input type="text" class="form-control" id="inputNome" placeholder="seu nome">
+          <span></span>
+          <label for="inputNome">Nome</label>
+        </div>
+
+        <div class="col-md-4 form-floating">
+          <input type="email" class="form-control" id="inputEmail" placeholder="seu e-mail">
+          <span></span>
+          <label for="inputEmail">E-mail</label>
+        </div>
+
+        <div class="col-md-2 form-floating">
+          <input type="tel" class="form-control" id="inputTelefone" placeholder="seu telefone">
+          <span></span>
+          <label for="inputTelefone">Telefone</label>
+        </div>
+
         <div class="col-md-4 form-floating ">
           <input type="text" class="form-control" id="inputCEP" name="inputCEP" placeholder="seu cep">
           <span></span>
@@ -83,6 +98,33 @@
           <label for="inputEstado" class="form-label">Estado</label>
         </div>
 
+        <div class="col-md-5 form-floating ">
+          <input type="number" class="form-control" id="inputPeso" name="inputPeso" placeholder="Seu peso">
+          <span></span>
+          <label for="inputPeso">Peso</label>
+        </div>
+
+        <div class="col-md-5 form-floating ">
+          <input type="number" class="form-control" id="inputAltura" name="inputAltura" placeholder="Sua altura">
+          <span></span>
+          <label for="inputAltura">Altura</label>
+        </div>
+
+
+        <div class="col-md-2 form-floating">
+          <select id="inputTipoSangue" class="form-select">
+            <option selected value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+          <label for="inputTipoSangue" class="form-label">Tipo sanguíneo</label>
+        </div>
+
         <div class="col-md-12">
           <button type="submit" class="btn btn-primary btn-lg">Cadastrar
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -94,13 +136,13 @@
       </form>
     </main>
   </div>
-
+  
   <?php
-  include "../../templates/footer.php";
+       include "../../templates/footer.php";
   ?>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
-
+  <!-- JavaScript Bundle with Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

@@ -10,7 +10,6 @@
   <?php
   include "../../templates/includes.php";
   ?>
-  <link rel="stylesheet" href="./style.css">
 
   <script src="./endereco.js"></script>
   <title>MAD Clinic - Cadastrar Endereço</title>
