@@ -3,8 +3,14 @@ header {
   padding: 10px;
 }
 
-header img  {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
