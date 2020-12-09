@@ -14,6 +14,7 @@ $test = $_GET["test"];
             <li class="nav-item"><a class="nav-link" href="../galeria/">Galeria</a></li>
             <li class="nav-item"><a class="nav-link" href="../novo_endereco/">Novo endereço</a></li>
             <li class="nav-item"><a class="nav-link" href="../agendar_consulta/">Agendamento</a></li>
+            <li class="nav-item"><a class="nav-link" href="../criar_funcionario/">Criar</a></li>
             <?php
             if ($user == "funcionario" || $user == "medico") {
                 echo <<<HTML

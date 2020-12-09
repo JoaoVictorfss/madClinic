@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="./style.css">
   <?php
   include "../../templates/includes.php";
   ?>
 
   <title>Mad Clinic - Funcionário</title>
-  <script src="funcionario.js"></script>
+  <script src="./funcionario.js"></script>
+  <style>
+
+  </style>
 </head>
 
 <body>
@@ -24,19 +27,28 @@
   <div class="container">
     <main>
       <form name="formFuncionario" class="row g-2" action="./processaFuncionario.php" method="POST">
-        <div class="col-md-6 form-floating">
+
+        <div class="col-md-2 form-floating">
+          <select id="inputTipo" name="tipo" class="form-select">
+            <option selected value="func">funcionário</option>
+            <option value="md">médico</option>
+          </select>
+          <label for="inputEstado" class="form-label">Tipo</label>
+        </div>
+
+        <div class="col-md-4 form-floating">
           <input type="text" class="form-control" id="inputNome" placeholder="seu nome">
           <span></span>
           <label for="inputNome">Nome</label>
         </div>
 
-        <div class="col-md-4 form-floating">
+        <div class="col-md-3 form-floating">
           <input type="email" class="form-control" id="inputEmail" placeholder="seu e-mail">
           <span></span>
           <label for="inputEmail">E-mail</label>
         </div>
 
-        <div class="col-md-2 form-floating">
+        <div class="col-md-3 form-floating">
           <input type="tel" class="form-control" id="inputTelefone" placeholder="seu telefone">
           <span></span>
           <label for="inputTelefone">Telefone</label>
@@ -67,7 +79,7 @@
         </div>
 
         <div class="col-md-2 form-floating">
-          <select id="inputEstado" class="form-select">
+          <select id="inputEstado" name="estado" class="form-select">
             <option selected value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -115,6 +127,22 @@
           <input type="password" class="form-control" id="inputSenha" name="inputSenha" placeholder="Senha">
           <span></span>
           <label for="inputSenha">Senha</label>
+        </div>
+
+
+        <div class="col-md form-floating disable" id="esp">
+          <select id="especialidade" class="form-select">
+            <option selected value="">Opção 1</option>
+            <option value="">Opção 2</option>
+            <option value="">Opção 3</option>
+          </select>
+          <label for="especialidade" class="form-label">Especialidade</label>
+        </div>
+
+        <div class="col-md form-floating disable" id="crm">
+          <input type="text" class="form-control" id="inputCrm" name="inputCrm" placeholder="crm">
+          <span></span>
+          <label for="inputCidade">CRM</label>
         </div>
 
         <div class="col-md-12">

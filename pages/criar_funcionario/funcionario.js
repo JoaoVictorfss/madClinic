@@ -1,11 +1,22 @@
 window.onload = function () {
-  console.log("Entrou");
   document.forms.formFuncionario.onsubmit = validaForm;
+
+  const tipo = document.getElementById("inputTipo");
+  tipo.addEventListener("change", tipoFunc);
+}
+
+function tipoFunc(e) {
+  if (e.target.value == "md") {
+    const crm = document.getElementById("crm");
+    const especialidade = document.getElementById("esp");
+    crm.classList.remove("disable");
+    especialidade.classList.remove("disable");
+  };
 }
 
 function validaForm(e) {
-  let form = e.target; //Dá acesso ao botão disparado
-  let formValido = true; //Indica se o form é válido
+  let form = e.target; // Dá acesso ao botão disparado
+  let formValido = true; // Indica se o form é válido
 
   const spanNome = form.inputNome.nextElementSibling;
   const spanEmail = form.inputEmail.nextElementSibling;
@@ -18,81 +29,102 @@ function validaForm(e) {
   const spanSalario = form.inputSalario.nextElementSibling;
   const spanSenha = form.inputSenha.nextElementSibling;
 
-  //regex para validar entrada
+  // regex para validar entrada
   const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
   const cep = /\d{5}-?\d{3}/;
   const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
 
+  //Validação de dados
   if (form.inputNome.value === "") {
     spanNome.textContent = "O Nome é obrigatório";
     formValido = false;
-  } else if (!soLetras.test(form.inputNome.value)) {
+  } else if (! soLetras.test(form.inputNome.value)) {
     spanNome.textContent = "formato inválido";
     formValido = false;
-  } else spanNome.textContent = "";
+  } else 
+    spanNome.textContent = "";
+  
 
   if (form.inputNome.value === "") {
     spanNome.textContent = "O Nome é obrigatório";
     formValido = false;
-  } else if (!soLetras.test(form.inputNome.value)) {
+  } else if (! soLetras.test(form.inputNome.value)) {
     spanNome.textContent = "formato inválido";
     formValido = false;
-  } else spanNome.textContent = "";
+  } else 
+    spanNome.textContent = "";
+  
 
   if (form.inputEmail.value === "") {
     spanEmail.textContent = "O Email é obrigatório";
     formValido = false;
-  } else spanEmail.textContent = "";
+  } else 
+    spanEmail.textContent = "";
+  
 
   if (form.inputTelefone.value === "") {
     spanTelefone.textContent = "O Telefone é obrigatório";
     formValido = false;
-  } else if (!telefone.test(form.inputTelefone.value)) {
+  } else if (! telefone.test(form.inputTelefone.value)) {
     spanTelefone.textContent = "formato inválido";
     formValido = false;
-  } else spanTelefone.textContent = "";
+  } else 
+    spanTelefone.textContent = "";
+  
 
   if (form.inputCEP.value === "") {
     spanCep.textContent = "O CEP é obrigatório";
     formValido = false;
-  } else if (!cep.test(form.inputCEP.value)) {
+  } else if (! cep.test(form.inputCEP.value)) {
     spanCep.textContent = "formato inválido";
     formValido = false;
-  } else spanCep.textContent = "";
+  } else 
+    spanCep.textContent = "";
+  
 
   if (form.inputLogradouro.value === "") {
     spanLogradouro.textContent = "O logradouro é obrigatório";
     formValido = false;
-  } else if (!soLetras.test(form.inputLogradouro.value)) {
+  } else if (! soLetras.test(form.inputLogradouro.value)) {
     spanLogradouro.textContent = "formato inválido";
     formValido = false;
-  } else spanLogradouro.textContent = "";
+  } else 
+    spanLogradouro.textContent = "";
+  
 
   if (form.inputBairro.value === "") {
     spanBairro.textContent = "O bairro é obrigatório";
     formValido = false;
-  } else if (!soLetras.test(form.inputBairro.value)) {
+  } else if (! soLetras.test(form.inputBairro.value)) {
     spanBairro.textContent = "formato inválido";
     formValido = false;
-  } else spanBairro.textContent = "";
+  } else 
+    spanBairro.textContent = "";
+  
 
   if (form.inputCidade.value === "") {
     spanCidade.textContent = "O nome da cidade é obrigatório";
     formValido = false;
-  } else if (!soLetras.test(form.inputCidade.value)) {
+  } else if (! soLetras.test(form.inputCidade.value)) {
     spanCidade.textContent = "formato inválido";
     formValido = false;
-  } else spanCidade.textContent = "";
+  } else 
+    spanCidade.textContent = "";
+  
 
   if (form.inputDataInicio.value === "") {
     spanDataInicio.textContent = "A data é obrigatória";
     formValido = false;
-  } else spanDataInicio.textContent = "";
+  } else 
+    spanDataInicio.textContent = "";
+  
 
   if (form.inputSalario.value === "") {
     spanSalario.textContent = "A data é obrigatória";
     formValido = false;
-  } else spanSalario.textContent = "";
+  } else 
+    spanSalario.textContent = "";
+  
 
   if (form.inputSenha.value === "") {
     spanSenha.textContent = "A senha é obrigatória";
@@ -100,7 +132,9 @@ function validaForm(e) {
   } else if (form.inputSenha.value.length < 6) {
     spanSenha.textContent = "Senha inválida";
     formValido = false;
-  } else spanSenha.textContent = "";
+  } else 
+    spanSenha.textContent = "";
+  
 
   return formValido;
 }

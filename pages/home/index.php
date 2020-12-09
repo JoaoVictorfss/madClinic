@@ -12,7 +12,6 @@
     ?>
     <link rel="stylesheet" href="./style.css">
 
-
     <title>MAD Clinic - Home</title>
 </head>
 
