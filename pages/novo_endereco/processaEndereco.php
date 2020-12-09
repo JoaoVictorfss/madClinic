@@ -29,7 +29,6 @@
       $cep, $logradouro, $bairro, $cidade, $estado
     ]);
     //colocar um modal avisando que deu certo e voltar para o login
-    exit("dados cadastrados com sucesso"); 
   } catch (Exception $e) {
     if ($e->errorInfo[1] === 1062)
       exit('Dados duplicados: ' . $e->getMessage());

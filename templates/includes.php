@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="../../css/header.css">
-<link rel="stylesheet" href="../../css/nav.css">
-<link rel="stylesheet" href="../../css/footer.css">
-<link rel="stylesheet" href="../../css/core.css">
-<link rel="stylesheet" href="../../css/form.css">
+<link rel="stylesheet" href="../../styles/header.css">
+<link rel="stylesheet" href="../../styles/nav.css">
+<link rel="stylesheet" href="../../styles/footer.css">
+<link rel="stylesheet" href="../../styles/core.css">
+<link rel="stylesheet" href="../../styles/form.css">
