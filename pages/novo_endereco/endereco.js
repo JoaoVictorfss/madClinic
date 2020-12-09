@@ -11,7 +11,7 @@
    const spanBairro = form.inputBairro.nextElementSibling;
    const spanCidade = form.inputCidade.nextElementSibling;
    //regex para validar entrada
-   const cep = /\d{5}-\d{3}/;
+   const cep = /\d{5}-?\d{3}/;
    const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
 
    if (form.inputCEP.value === "") {
