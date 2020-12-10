@@ -2,11 +2,11 @@ window.onload = function () {
   document.forms.formFuncionario.onsubmit = validaForm;
 
   const tipo = document.getElementById("inputTipo");
-  tipo.addEventListener("change", tipoFunc);
+  tipo.addEventListener("change", tipoFuncionario);
 }
 
-function tipoFunc(e) {
-  if (e.target.value == "md") {
+function tipoFuncionario(e) {
+  if (e.target.value === "md") {
     const crm = document.getElementById("crm");
     const especialidade = document.getElementById("esp");
     crm.classList.remove("disable");
@@ -14,9 +14,16 @@ function tipoFunc(e) {
   };
 }
 
+function validaCampo(valor, validador) {
+  if (!valor.length) {
+    return "campo obrigatório";
+  } else if (validador && !validador.test(valor)) {
+    return "formato inválido";
+  } else return "";
+}
+
 function validaForm(e) {
   let form = e.target; // Dá acesso ao botão disparado
-  let formValido = true; // Indica se o form é válido
 
   const spanNome = form.inputNome.nextElementSibling;
   const spanEmail = form.inputEmail.nextElementSibling;
@@ -31,110 +38,24 @@ function validaForm(e) {
 
   // regex para validar entrada
   const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
-  const cep = /\d{5}-?\d{3}/;
+  const cep = /\d{5}-\d{3}/;
   const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
 
-  //Validação de dados
-  if (form.inputNome.value === "") {
-    spanNome.textContent = "O Nome é obrigatório";
-    formValido = false;
-  } else if (! soLetras.test(form.inputNome.value)) {
-    spanNome.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanNome.textContent = "";
-  
+  //validação 
+  spanNome.textContent = validaCampo(form.inputNome.value, soLetras);
+  spanEmail.textContent = validaCampo(form.inputEmail.value);
+  spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);
+  spanCep.textContent = validaCampo(form.inputCEP.value, cep);
+  spanLogradouro.textContent = validaCampo(form.inputLogradouro.value, soLetras);
+  spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
+  spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
+  spanDataInicio.textContent = validaCampo(form.inputDataInicio.value);
+  spanSalario.textContent = validaCampo(form.inputSalario.value)
 
-  if (form.inputNome.value === "") {
-    spanNome.textContent = "O Nome é obrigatório";
-    formValido = false;
-  } else if (! soLetras.test(form.inputNome.value)) {
-    spanNome.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanNome.textContent = "";
-  
+  spanSenha.textContent = validaCampo(form.inputSenha.value);
+  if (!spanSenha.textContent && form.inputSenha.value.length <= 6)
+    spanSenha.textContent = "senha pequena";
 
-  if (form.inputEmail.value === "") {
-    spanEmail.textContent = "O Email é obrigatório";
-    formValido = false;
-  } else 
-    spanEmail.textContent = "";
-  
-
-  if (form.inputTelefone.value === "") {
-    spanTelefone.textContent = "O Telefone é obrigatório";
-    formValido = false;
-  } else if (! telefone.test(form.inputTelefone.value)) {
-    spanTelefone.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanTelefone.textContent = "";
-  
-
-  if (form.inputCEP.value === "") {
-    spanCep.textContent = "O CEP é obrigatório";
-    formValido = false;
-  } else if (! cep.test(form.inputCEP.value)) {
-    spanCep.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanCep.textContent = "";
-  
-
-  if (form.inputLogradouro.value === "") {
-    spanLogradouro.textContent = "O logradouro é obrigatório";
-    formValido = false;
-  } else if (! soLetras.test(form.inputLogradouro.value)) {
-    spanLogradouro.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanLogradouro.textContent = "";
-  
-
-  if (form.inputBairro.value === "") {
-    spanBairro.textContent = "O bairro é obrigatório";
-    formValido = false;
-  } else if (! soLetras.test(form.inputBairro.value)) {
-    spanBairro.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanBairro.textContent = "";
-  
-
-  if (form.inputCidade.value === "") {
-    spanCidade.textContent = "O nome da cidade é obrigatório";
-    formValido = false;
-  } else if (! soLetras.test(form.inputCidade.value)) {
-    spanCidade.textContent = "formato inválido";
-    formValido = false;
-  } else 
-    spanCidade.textContent = "";
-  
-
-  if (form.inputDataInicio.value === "") {
-    spanDataInicio.textContent = "A data é obrigatória";
-    formValido = false;
-  } else 
-    spanDataInicio.textContent = "";
-  
-
-  if (form.inputSalario.value === "") {
-    spanSalario.textContent = "A data é obrigatória";
-    formValido = false;
-  } else 
-    spanSalario.textContent = "";
-  
-
-  if (form.inputSenha.value === "") {
-    spanSenha.textContent = "A senha é obrigatória";
-    formValido = false;
-  } else if (form.inputSenha.value.length < 6) {
-    spanSenha.textContent = "Senha inválida";
-    formValido = false;
-  } else 
-    spanSenha.textContent = "";
-  
-
-  return formValido;
+  return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
+    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent);
 }
