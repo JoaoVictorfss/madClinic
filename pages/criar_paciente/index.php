@@ -8,35 +8,35 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
   <?php
-  include "../../../templates/includes.php";
+  include "../../templates/includes.php";
   ?>
   <title>Mad Clinic - Paciente</title>
-
+  <script src="./paciente.js"></script>
 </head>
 
 <body>
   <?php
-  include "../../../templates/header.php";
-  include "../../../templates/nav.php";
+  include "../../templates/header.php";
+  include "../../templates/nav.php";
   ?>
 
   <div class="container">
     <main>
       <form name="formPaciente" class="row g-2" action="./processaPaciente.php" method="POST">
         <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="inputNome" placeholder="seu nome">
+          <input type="text" class="form-control" name="inputNome" id="inputNome" placeholder="seu nome">
           <span></span>
           <label for="inputNome">Nome</label>
         </div>
 
         <div class="col-md-4 form-floating">
-          <input type="email" class="form-control" id="inputEmail" placeholder="seu e-mail">
+          <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="seu e-mail">
           <span></span>
           <label for="inputEmail">E-mail</label>
         </div>
 
         <div class="col-md-2 form-floating">
-          <input type="tel" class="form-control" id="inputTelefone" placeholder="seu telefone">
+          <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone" placeholder="seu telefone">
           <span></span>
           <label for="inputTelefone">Telefone</label>
         </div>
@@ -136,9 +136,9 @@
       </form>
     </main>
   </div>
-  
+
   <?php
-       include "../../../templates/footer.php";
+  include "../../templates/footer.php";
   ?>
   <!-- JavaScript Bundle with Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous">
