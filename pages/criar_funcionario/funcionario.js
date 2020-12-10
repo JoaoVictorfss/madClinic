@@ -39,6 +39,7 @@ function validaForm(e) {
   const spanSalario = form.inputSalario.nextElementSibling;
   const spanSenha = form.inputSenha.nextElementSibling;
   const spanCrm = form.inputCrm.nextElementSibling;
+  const spanEspecialidade = form.inputEspecialidade.nextElementSibling;
 
   // regex para validar entrada
   const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
@@ -62,9 +63,13 @@ function validaForm(e) {
   
   //validação do input de especialidade do médico
   if (form.inputTipo.value == "md") {
-    spanCrm.textContent = validaCampo(form.inputCrm.value, soLetras);
-  }else   spanCrm.textContent = "";
+    spanCrm.textContent = validaCampo(form.inputCrm.value);
+    spanEspecialidade.textContent = validaCampo(form.inputEspecialidade.value, soLetras);
+  } else {
+    spanEspecialidade.textContent = "";
+    spanCrm.textContent = "";
+  }
 
    return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
-    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent);
+    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent  && !spanEspecialidade.textContent);
 }

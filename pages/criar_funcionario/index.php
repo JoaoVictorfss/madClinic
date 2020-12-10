@@ -29,7 +29,7 @@
       <form name="formFuncionario" class="row g-2" action="./processaFuncionario.php" method="POST">
 
         <div class="col-md-2 form-floating">
-          <select id="inputTipo" name="tipo" class="form-select">
+          <select id="inputTipo" name="inputTipo" class="form-select">
             <option selected value="func">funcionário</option>
             <option value="md">médico</option>
           </select>
@@ -37,19 +37,19 @@
         </div>
 
         <div class="col-md-4 form-floating">
-          <input type="text" class="form-control" id="inputNome" placeholder="seu nome">
+          <input type="text" class="form-control" name="inputNome" id="inputNome" placeholder="seu nome">
           <span></span>
           <label for="inputNome">Nome</label>
         </div>
 
         <div class="col-md-3 form-floating">
-          <input type="email" class="form-control" id="inputEmail" placeholder="seu e-mail">
+          <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="seu e-mail">
           <span></span>
           <label for="inputEmail">E-mail</label>
         </div>
 
         <div class="col-md-3 form-floating">
-          <input type="tel" class="form-control" id="inputTelefone" placeholder="seu telefone">
+          <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone" placeholder="seu telefone">
           <span></span>
           <label for="inputTelefone">Telefone</label>
         </div>
@@ -129,20 +129,16 @@
           <label for="inputSenha">Senha</label>
         </div>
 
-
         <div class="col-md form-floating disable" id="esp">
-          <select id="especialidade" class="form-select">
-            <option selected value="">Opção 1</option>
-            <option value="">Opção 2</option>
-            <option value="">Opção 3</option>
-          </select>
-          <label for="especialidade" class="form-label">Especialidade</label>
+          <input type="text" class="form-control" id="inputEspecialidade" name="inputEspecialidade" placeholder="epecialidade">
+          <span></span>
+          <label for="inputEspecialidade">Especialidade</label>
         </div>
 
         <div class="col-md form-floating disable" id="crm">
           <input type="text" class="form-control" id="inputCrm" name="inputCrm" placeholder="crm">
           <span></span>
-          <label for="inputCidade">CRM</label>
+          <label for="inputCrm">CRM</label>
         </div>
 
         <div class="col-md-12">
