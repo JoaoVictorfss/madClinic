@@ -112,7 +112,7 @@
 
 
         <div class="col-md-2 form-floating">
-          <select id="inputTipoSangue" class="form-select">
+          <select id="inputTipoSangue" name="inputTipoSangue" class=" form-select">
             <option selected value="A+">A+</option>
             <option value="A-">A-</option>
             <option value="B+">B+</option>
