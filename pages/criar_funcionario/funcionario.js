@@ -60,7 +60,7 @@ function validaForm(e) {
   spanSenha.textContent = validaCampo(form.inputSenha.value);
   if (!spanSenha.textContent && form.inputSenha.value.length <= 6)
     spanSenha.textContent = "senha pequena";
-  
+
   //validação do input de especialidade do médico
   if (form.inputTipo.value == "md") {
     spanCrm.textContent = validaCampo(form.inputCrm.value);
@@ -70,6 +70,8 @@ function validaForm(e) {
     spanCrm.textContent = "";
   }
 
-   return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
-    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent  && !spanEspecialidade.textContent);
+  return (
+    !spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
+    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent && !spanEspecialidade.textContent
+  );
 }
