@@ -6,12 +6,15 @@ window.onload = function () {
 }
 
 function tipoFuncionario(e) {
+  const crm = document.getElementById("crm");
+  const especialidade = document.getElementById("esp");
   if (e.target.value === "md") {
-    const crm = document.getElementById("crm");
-    const especialidade = document.getElementById("esp");
     crm.classList.remove("disable");
     especialidade.classList.remove("disable");
-  };
+  } else {
+    crm.classList.add("disable");
+    especialidade.classList.add("disable");
+  }
 }
 
 function validaCampo(valor, validador) {
@@ -35,6 +38,7 @@ function validaForm(e) {
   const spanDataInicio = form.inputDataInicio.nextElementSibling;
   const spanSalario = form.inputSalario.nextElementSibling;
   const spanSenha = form.inputSenha.nextElementSibling;
+  const spanCrm = form.inputCrm.nextElementSibling;
 
   // regex para validar entrada
   const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
@@ -55,7 +59,12 @@ function validaForm(e) {
   spanSenha.textContent = validaCampo(form.inputSenha.value);
   if (!spanSenha.textContent && form.inputSenha.value.length <= 6)
     spanSenha.textContent = "senha pequena";
+  
+  //validação do input de especialidade do médico
+  if (form.inputTipo.value == "md") {
+    spanCrm.textContent = validaCampo(form.inputCrm.value, soLetras);
+  }else   spanCrm.textContent = "";
 
-  return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
-    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent);
+   return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
+    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent);
 }

@@ -33,7 +33,7 @@
             <option selected value="func">funcionário</option>
             <option value="md">médico</option>
           </select>
-          <label for="inputEstado" class="form-label">Tipo</label>
+          <label for="inputTipo" class="form-label">Tipo</label>
         </div>
 
         <div class="col-md-4 form-floating">
