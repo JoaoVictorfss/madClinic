@@ -15,15 +15,14 @@
                     <li class="nav-item"><a class="nav-link" href="../criar_paciente/">Novo Paciente</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar Funcionários</a></li>
                     <li class="nav-item"><a class="nav-link" href="../listar_paciente/">Listar Pacientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Listar Endereços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../listar_enderecos/">Listar Endereços</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar todos Agendamentos</a></li>
                 HTML;
 
-                // verficar se eh medico
-
+                if(isset($_SESSION["medico"]))
+                    echo "<li class='nav-item'><a class='nav-link' href='#'>Listar meus Agendamentos</a></li>";
+                
             }
-            if ($test)
-                echo "<h1>$test</h1>"
             ?>
         </ul>
     </div>
