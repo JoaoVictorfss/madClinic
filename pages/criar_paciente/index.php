@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,7 @@
 
   <div class="container">
     <main>
+      <h2 class="mb-4">Cadastro de Paciente</h2>
       <form name="formPaciente" class="row g-2" action="./processaPaciente.php" method="POST">
         <div class="col-md-6 form-floating">
           <input type="text" class="form-control" name="inputNome" id="inputNome" placeholder="seu nome">

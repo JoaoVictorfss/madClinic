@@ -25,7 +25,7 @@
     include "../../templates/nav.php";
     ?>
 
-    <div class="container mb-5">
+    <div class="container">
         <main>
 
             <?php
