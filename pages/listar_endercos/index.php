@@ -1,14 +1,14 @@
 <?php
+
 require "../../config/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {
 
   $sql = <<<SQL
-      SELECT pac.codigo as codigo, nome, email, telefone, cep, logradouro, bairro, cidade, estado, peso, altura, tipo_sanguineo
-      FROM pessoa p
-      JOIN paciente pac
-      SQL;
+  SELECT cep, logradouro, bairro, cidade, estado
+  FROM base_enderecos_ajax 
+  SQL;
 
   $stmt = $pdo->query($sql);
 } catch (Exception $e) {
@@ -27,7 +27,7 @@ try {
   <?php
   include "../../templates/includes.php";
   ?>
-  <title>Mad Clinic - Pacientes</title>
+  <title>Mad Clinic - Enderecos</title>
 
 </head>
 
@@ -39,25 +39,18 @@ try {
 
   <div class="container">
     <main>
-      <h2 class="mb-4">Pacientes Cadastrados</h2>
+      <h2 class="mb-4">Endereços Cadastrados</h2>
 
       <div class="table-responsive">
         <table class="table table-light table-hover">
-          <caption>Lista de pacientes</caption>
+          <caption>Lista de endereços</caption>
           <thead class="table-primary">
             <tr>
-              <th scope="col">Código</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Email</th>
-              <th scope="col">Telefone</th>
               <th scope="col">Cep</th>
-              <th scope="col">logradouro</th>
+              <th scope="col">Logradouro</th>
               <th scope="col">Bairro</th>
               <th scope="col">Cidade</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Peso</th>
-              <th scope="col">Altura</th>
-              <th scope="col">Sangue</th>
+              <th scope="col">Estado </th>
             </tr>
           </thead>
           <tbody>
@@ -65,32 +58,18 @@ try {
             while ($row = $stmt->fetch()) {
 
               // Previni ataque XSS
-              $telefone = htmlspecialchars($row['telefone']);
-              $email = htmlspecialchars($row['email']);
-              $nome = htmlspecialchars($row['nome']);
-              $codigo = htmlspecialchars($row['codigo']);   
               $cep = htmlspecialchars($row['cep']);
               $logradouro = htmlspecialchars($row['logradouro']);
               $bairro = htmlspecialchars($row['bairro']);
               $cidade = htmlspecialchars($row['cidade']);
               $estado = htmlspecialchars($row['estado']);
-              $peso = htmlspecialchars($row['peso']);
-              $altura = htmlspecialchars($row['altura']);
-              $tipo_sanguineo =htmlspecialchars($row['tipo_sanguineo']);
               echo <<<HTML
           <tr>
-            <td scope="row">$codigo</td> 
-             <td>$nome</td>
-            <td>$email</td>
-            <td>$telefone</td>
-            <td>$cep</td>
+            <td scope="row">$cep</td> 
             <td>$logradouro</td>
             <td>$bairro</td>
             <td>$cidade</td>
             <td>$estado</td>
-            <td>$peso</td>
-            <td>$altura</td>
-            <td>$tipo_sanguineo</td>
           </tr>      
         HTML;
             }
