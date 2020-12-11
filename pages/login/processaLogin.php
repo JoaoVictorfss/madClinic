@@ -42,8 +42,9 @@
         $stmt->execute([$_SESSION["codigo"]]);
         $row = $stmt->fetch();
 
-        if(isset($row["codigo"]))
-          $_SESSION["medico"] = $row["crm"];
+        if(isset($row["codigo"])) {
+          $_SESSION["medico"] = true;
+        }
 
         // require "../home";
 

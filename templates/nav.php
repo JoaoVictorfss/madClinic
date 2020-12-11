@@ -36,8 +36,12 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Todos Agendamentos</a>
                     HTML;
-                    if(isset($_SESSION["medico"]))
-                        echo "<li class='nav-item'><a class='nav-link' href='#'>Meus Agendamentos</a></li>"; 
+                    if (isset($_SESSION["medico"])) {
+                        echo <<< HTML
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Meus Agendamentos</a>
+                        HTML; 
+                    }
                     echo <<< HTML
                             </div>
                         </li>
