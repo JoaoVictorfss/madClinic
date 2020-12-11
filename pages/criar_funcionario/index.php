@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,8 @@
 
   <div class="container">
     <main>
+      <h2 class="mb-4">Cadastro de Funcionário</h2>
+
       <form name="formFuncionario" class="row g-2" action="./processaFuncionario.php" method="POST">
 
         <div class="col-md-2 form-floating">
