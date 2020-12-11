@@ -1,21 +1,49 @@
- <?php
+<?php
+  session_start();
+?>
+
+<?php
+
+  require "../../config/conexaoMysql.php";
+  $pdo = mysqlConnect();
+
   $email = $senha = "";
 
-  //validação de dados
   if (isset($_POST["email"]))
-    $email = htmlspecialchars($_POST["email"]);
+    $email = $_POST["email"];
   if (isset($_POST["senha"]))
-    $senha = htmlspecialchars($_POST["senha"]);
-  //fim validação
+    $senha = $_POST["senha"];
 
-  if($email != "" && $senha != ""){
-    header("location: /home/");
-    /*
-    *Lógica para requisitar banco de dados e redirecionar página caso os exita este usuário, salvando os dados no
-    *localStorage para manter a sessão até o usuário fazer logout. 
-   */
+  if($email != "" && $senha != "") {
+
+    $sql = <<<SQL
+    SELECT senha_hash
+    FROM pessoa INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
+    WHERE email = ?
+    SQL;
+
+    try {
+      $stmt = $pdo->prepare($sql);
+      $stmt->execute([$email]);
+      $row = $stmt->fetch();
+
+      if(!$row) {
+        // menssagem de email nao encontrado
+      } else if(password_verify($senha, $row["senha_hash"])) {
+
+          $_SESSION["nome"]  = $row["nome"];
+          $_SESSION["email"] = $row["email"];
+          echo "<script>header('Location: /pages/home/');</script>";
+        } else {
+          // senha errada
+        }
+
+    } catch (Exception $e) {
+        exit('Falha ao validar dados: ' . $e->getMessage());
+    }
+
   }else{
      //reload na página 
      return;
   }
-  ?>
+?>
