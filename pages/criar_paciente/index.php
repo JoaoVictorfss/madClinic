@@ -46,9 +46,9 @@
         </div>
 
         <div class="col-md-4 form-floating ">
-          <input type="text" class="form-control" id="inputCEP" name="inputCEP" placeholder="seu cep">
+          <input type="text" class="form-control" id="inputCep" name="inputCep" placeholder="seu cep">
           <span></span>
-          <label for="inputCEP">CEP</label>
+          <label for="inputCep">CEP</label>
         </div>
 
         <div class="col-md-8 form-floating ">
