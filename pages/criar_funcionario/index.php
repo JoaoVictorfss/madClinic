@@ -14,15 +14,12 @@ session_start();
   <?php
   include "../../templates/includes.php";
   ?>
-
   <title>Mad Clinic - Funcionário</title>
   <script src="./funcionario.js"></script>
-  <style>
-
-  </style>
 </head>
 
 <body>
+  
   <?php
   include "../../templates/header.php";
   include "../../templates/nav.php";

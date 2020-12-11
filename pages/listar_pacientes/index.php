@@ -15,6 +15,7 @@ try {
   exit('Ocorreu uma falha: ' . $e->getMessage());
 }
 ?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -28,7 +29,6 @@ try {
   include "../../templates/includes.php";
   ?>
   <title>Mad Clinic - Pacientes</title>
-
 </head>
 
 <body>
@@ -60,39 +60,40 @@ try {
             </tr>
           </thead>
           <tbody>
+
             <?php
-            while ($row = $stmt->fetch()) {
+                  while ($row = $stmt->fetch()) {
+                    // Previni ataque XSS
+                    $telefone = htmlspecialchars($row['telefone']);
+                    $email = htmlspecialchars($row['email']);
+                    $nome = htmlspecialchars($row['nome']);
+                    $cep = htmlspecialchars($row['cep']);
+                    $logradouro = htmlspecialchars($row['logradouro']);
+                    $bairro = htmlspecialchars($row['bairro']);
+                    $cidade = htmlspecialchars($row['cidade']);
+                    $estado = htmlspecialchars($row['estado']);
+                    $peso = htmlspecialchars($row['peso']);
+                    $altura = htmlspecialchars($row['altura']);
+                    $tipo_sanguineo = htmlspecialchars($row['tipo_sanguineo']);
 
-              // Previni ataque XSS
-              $telefone = htmlspecialchars($row['telefone']);
-              $email = htmlspecialchars($row['email']);
-              $nome = htmlspecialchars($row['nome']);
-              $cep = htmlspecialchars($row['cep']);
-              $logradouro = htmlspecialchars($row['logradouro']);
-              $bairro = htmlspecialchars($row['bairro']);
-              $cidade = htmlspecialchars($row['cidade']);
-              $estado = htmlspecialchars($row['estado']);
-              $peso = htmlspecialchars($row['peso']);
-              $altura = htmlspecialchars($row['altura']);
-              $tipo_sanguineo = htmlspecialchars($row['tipo_sanguineo']);
-              echo <<<HTML
-          <tr>
-
-            <td scope="row" >$nome</td>
-            <td>$email</td>
-            <td>$telefone</td>
-            <td>$cep</td>
-            <td>$logradouro</td>
-            <td>$bairro</td>
-            <td>$cidade</td>
-            <td>$estado</td>
-            <td>$peso</td>
-            <td>$altura</td>
-            <td>$tipo_sanguineo</td>
-          </tr>      
-        HTML;
+                    echo <<<HTML
+                                  <tr>
+                                    <td scope="row" >$nome</td>
+                                    <td>$email</td>
+                                    <td>$telefone</td>
+                                    <td>$cep</td>
+                                    <td>$logradouro</td>
+                                    <td>$bairro</td>
+                                    <td>$cidade</td>
+                                    <td>$estado</td>
+                                    <td>$peso</td>
+                                    <td>$altura</td>
+                                    <td>$tipo_sanguineo</td>
+                                  </tr>      
+                  HTML;
             }
             ?>
+            
           </tbody>
         </table>
       </div>

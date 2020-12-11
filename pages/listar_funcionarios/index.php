@@ -5,9 +5,9 @@ $pdo = mysqlConnect();
 try {
 
   $sql = <<<SQL
-                SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
-                  data_contrato, salario
-                FROM pessoa INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
+        SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
+          data_contrato, salario
+        FROM pessoa INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
       SQL;
 
   $stmt = $pdo->query($sql);
@@ -15,23 +15,23 @@ try {
   exit('Ocorreu uma falha: ' . $e->getMessage());
 }
 ?>
+
 <!doctype html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
   <?php
   include "../../templates/includes.php";
   ?>
   <title>Mad Clinic - Funcionário</title>
-
 </head>
 
 <body>
+
   <?php
   include "../../templates/header.php";
   include "../../templates/nav.php";
@@ -59,9 +59,9 @@ try {
             </tr>
           </thead>
           <tbody>
+
             <?php
             while ($row = $stmt->fetch()) {
-
               // Previni ataque XSS
               $telefone = htmlspecialchars($row['telefone']);
               $email = htmlspecialchars($row['email']);
@@ -74,22 +74,24 @@ try {
               $data_contrato = htmlspecialchars($row['data_contrato']);
               $data = date('d/m/Y', strtotime($data_contrato));
               $salario = htmlspecialchars($row['salario']);
+
               echo <<<HTML
-          <tr>
-            <td scope="row">$nome</td>
-            <td>$email</td>
-            <td>$telefone</td>
-            <td>$cep</td>
-            <td>$logradouro</td>
-            <td>$bairro</td>
-            <td>$cidade</td>
-            <td>$estado</td>
-            <td>$data</td>
-            <td>R$ $salario</td>
-          </tr>      
+                              <tr>
+                                <td scope="row">$nome</td>
+                                <td>$email</td>
+                                <td>$telefone</td>
+                                <td>$cep</td>
+                                <td>$logradouro</td>
+                                <td>$bairro</td>
+                                <td>$cidade</td>
+                                <td>$estado</td>
+                                <td>$data</td>
+                                <td>R$ $salario</td>
+                              </tr>      
         HTML;
             }
             ?>
+
           </tbody>
         </table>
       </div>

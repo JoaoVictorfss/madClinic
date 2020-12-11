@@ -28,7 +28,7 @@
                                 Listar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="..listar_funcionarios">Funcionários</a>
+                                <a class="dropdown-item" href="../listar_funcionarios">Funcionários</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../listar_pacientes/">Pacientes</a>
                                 <div class="dropdown-divider"></div>
