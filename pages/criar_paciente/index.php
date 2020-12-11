@@ -66,7 +66,7 @@
         </div>
 
         <div class="col-md-2 form-floating">
-          <select id="inputEstado" class="form-select">
+          <select id="inputEstado" name="inputEstado" class="form-select">
             <option selected value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -101,13 +101,13 @@
         <div class="col-md-5 form-floating ">
           <input type="number" class="form-control" id="inputPeso" name="inputPeso" placeholder="Seu peso">
           <span></span>
-          <label for="inputPeso">Peso</label>
+          <label for="inputPeso">Peso(kg)</label>
         </div>
 
         <div class="col-md-5 form-floating ">
           <input type="number" class="form-control" id="inputAltura" name="inputAltura" placeholder="Sua altura">
           <span></span>
-          <label for="inputAltura">Altura</label>
+          <label for="inputAltura">Altura(cm)</label>
         </div>
 
 
