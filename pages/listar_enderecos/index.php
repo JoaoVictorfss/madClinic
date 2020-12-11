@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 require "../../config/conexaoMysql.php";
@@ -77,7 +76,7 @@ try {
         HTML;
             }
             ?>
-            
+
           </tbody>
         </table>
       </div>
