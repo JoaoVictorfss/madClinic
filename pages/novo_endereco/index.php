@@ -51,7 +51,7 @@
         </div>
 
         <div class="col-md-2 form-floating">
-          <select id="inputEstado" class="form-select">
+          <select id="inputEstado" name="inputEstado" class="form-select">
             <option selected value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>

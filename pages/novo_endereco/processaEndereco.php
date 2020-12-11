@@ -4,16 +4,11 @@
   
   $cep = $logradouro =  $bairro = $cidade = $estado =  "";
   //validação de dados
-  if (isset($_POST["inputCEP"]))
-    $cep = htmlspecialchars($_POST["inputCEP"]);
-  if (isset($_POST["inputLogradouro"]))
-    $logradouro = htmlspecialchars($_POST["inputLogradouro"]);
-  if (isset($_POST["inputBairro"]))
-    $bairro = htmlspecialchars($_POST["inputBairro"]);
-  if (isset($_POST["inputCidade"]))
-    $cidade = htmlspecialchars($_POST["inputCidade"]);
-  if (isset($_POST["inputEstado"]))
-    $estado = htmlspecialchars($_POST["inputEstado"]);
+  if (isset($_POST["inputCEP"])) $cep = ($_POST["inputCEP"]);
+  if (isset($_POST["inputLogradouro"])) $logradouro = ($_POST["inputLogradouro"]);
+  if (isset($_POST["inputBairro"])) $bairro =($_POST["inputBairro"]);
+  if (isset($_POST["inputCidade"])) $cidade = ($_POST["inputCidade"]);
+  if (isset($_POST["inputEstado"])) $estado = $_POST["inputEstado"];
 
   //fim validação
   try {
