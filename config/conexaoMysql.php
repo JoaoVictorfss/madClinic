@@ -7,13 +7,12 @@ function mysqlConnect()
   $db_password = "PBnSip#VNKA4yDs";
   $db_name = "3634639_abc";
 
-  // dsn é apenas um acrônimo de database source name
   $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
 
   $options = [
-    PDO::ATTR_EMULATE_PREPARES => false, // desativa a execução emulada de prepared statements
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // ativa o modo de erros para lançar exceções    
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, // altera o modo padrão do método fetch para FETCH_ASSOC
+    PDO::ATTR_EMULATE_PREPARES => false, 
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,   
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, 
   ];
 
   try {

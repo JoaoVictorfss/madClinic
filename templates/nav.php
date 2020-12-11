@@ -13,14 +13,14 @@
                 echo <<<HTML
                     <li class="nav-item"><a class="nav-link" href="../criar_funcionario/">Novo Funcionário</a></li>
                     <li class="nav-item"><a class="nav-link" href="../criar_paciente/">Novo Paciente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../listar_paciente">Listar Funcionários</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Listar Pacientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Listar Funcionários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../listar_paciente/">Listar Pacientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar Endereços</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar todos Agendamentos</a></li>
                 HTML;
 
-                if ($user == "medico")
-                    echo '<li class="nav-item"><a class="nav-link" href="#">Listar meus Agendamentos</a></li>';
+                // verficar se eh medico
+
             }
             if ($test)
                 echo "<h1>$test</h1>"
