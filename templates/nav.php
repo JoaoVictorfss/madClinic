@@ -3,26 +3,46 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
             <li class="nav-item active"><a class="nav-link" href="../home/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="../galeria/">Galeria</a></li>
             <li class="nav-item"><a class="nav-link" href="../novo_endereco/">Novo endereço</a></li>
             <li class="nav-item"><a class="nav-link" href="../agendar_consulta/">Agendamento</a></li>
-            <?php
-            if (isset($_SESSION["codigo"])) {
-                echo <<<HTML
-                    <li class="nav-item"><a class="nav-link" href="../criar_funcionario/">Novo Funcionário</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../criar_paciente/">Novo Paciente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Listar Funcionários</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../listar_paciente/">Listar Pacientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../listar_enderecos/">Listar Endereços</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Listar todos Agendamentos</a></li>
-                HTML;
 
-                if(isset($_SESSION["medico"]))
-                    echo "<li class='nav-item'><a class='nav-link' href='#'>Listar meus Agendamentos</a></li>";
-                
-            }
+            <?php
+                if (isset($_SESSION["codigo"])) {
+                    echo <<<HTML
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cadastrar
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../criar_funcionario">Funcionário</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../criar_paciente">Paciente</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Listar
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Funcionários</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../listar_pacientes/">Pacientes</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../listar_enderecos/">Endereços</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Todos Agendamentos</a>
+                    HTML;
+                    if(isset($_SESSION["medico"]))
+                        echo "<li class='nav-item'><a class='nav-link' href='#'>Meus Agendamentos</a></li>"; 
+                    echo <<< HTML
+                            </div>
+                        </li>
+                    HTML;
+                }
             ?>
         </ul>
     </div>
