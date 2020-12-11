@@ -22,6 +22,6 @@ function validaForm(e) {
     formValido = false;
   }
 
-  if (formValido) header("Location: /pages/home/");
+  if (formValido) header("Location: ../home");
   return formValido;
 }

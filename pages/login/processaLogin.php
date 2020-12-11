@@ -17,7 +17,7 @@
   if($email != "" && $senha != "") {
 
     $sql = <<<SQL
-    SELECT senha_hash
+    SELECT senha_hash, nome, pessoa.codigo
     FROM pessoa INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
     WHERE email = ?
     SQL;
@@ -28,14 +28,16 @@
       $row = $stmt->fetch();
 
       if(!$row) {
-        // menssagem de email nao encontrado
+        echo "<script>window.alert('Email não encontrado!');</script>";
       } else if(password_verify($senha, $row["senha_hash"])) {
-
+        
           $_SESSION["nome"]  = $row["nome"];
-          $_SESSION["email"] = $row["email"];
-          echo "<script>header('Location: /pages/home/');</script>";
+          $_SESSION["email"] = $email;
+          $_SESSION["codigo"] = $row["codigo"];
+          // require "../home";
+
         } else {
-          // senha errada
+          echo "<script>window.alert('Senha incorreta');</script>";
         }
 
     } catch (Exception $e) {

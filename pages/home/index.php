@@ -28,12 +28,10 @@
     <div class="container mb-5">
         <main>
 
-            <!-- <?php
+            <?php
                 $nome = $_SESSION["nome"];
-                $email = $_SESSION["email"];
                 echo "<h1>Bem vindo $nome</h1>";
-                echo "<h1>O seu email é $email)</h1>";
-            ?> -->
+            ?>
 
             <section>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

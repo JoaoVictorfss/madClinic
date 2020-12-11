@@ -1,6 +1,8 @@
 <?php
-$login = false;
+  session_start();
+  $login = isset($_SESSION["codigo"]);
 ?>
+
 <header>
     <div class="container">
         <div class="content">
@@ -8,10 +10,10 @@ $login = false;
             <?php     
             if ($login){
                 <<< HTML
-                    <button class="btn btn-outline-dark">
+                    <button class="btn btn-outline-dark logout_bnt">
                      Logout
                     </button>
-HTML; 
+                HTML; 
             }else{
                 echo  <<< HTML
                 <a  href="../login/">
@@ -19,9 +21,15 @@ HTML;
                      Login
                     </button>
                 </a>
-HTML; 
+                HTML; 
             }
             ?>
         </div>
     </div>
+    <script>
+        window.onload = function {
+            logout_bnt = document.querySelector(".logout_bnt");
+            logout_bnt.onclick = () => <?php session_destroy(); ?>
+        }
+    </script>
 </header>

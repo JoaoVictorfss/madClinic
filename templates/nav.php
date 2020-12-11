@@ -1,7 +1,5 @@
 <?php
-// $user = "funcionario";
-// $user = "medico";
-$test = $_GET["test"];
+  session_start();
 ?>
 
 <nav class="navbar navbar-expand-md background-nav navbar-light">
@@ -15,15 +13,16 @@ $test = $_GET["test"];
             <li class="nav-item"><a class="nav-link" href="../novo_endereco/">Novo endereço</a></li>
             <li class="nav-item"><a class="nav-link" href="../agendar_consulta/">Agendamento</a></li>
             <?php
-            if ($user == "funcionario" || $user == "medico") {
+            if (isset($_SESSION["codigo"])) {
                 echo <<<HTML
-                    <li class="nav-item"><a class="nav-link" href="#">Novo Funcionário</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Novo Paciente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Listar Funcionários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../criar_funcionario/">Novo Funcionário</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../criar_paciente/">Novo Paciente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../listar_paciente">Listar Funcionários</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar Pacientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar Endereços</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Listar todos Agendamentos</a></li>
-HTML;
+                HTML;
+
                 if ($user == "medico")
                     echo '<li class="nav-item"><a class="nav-link" href="#">Listar meus Agendamentos</a></li>';
             }
