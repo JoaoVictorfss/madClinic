@@ -23,13 +23,12 @@
                             </div>
                         </li>
 
-<<<<<<< HEAD
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Listar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Funcionários</a>
+                                <a class="dropdown-item" href="..listar_funcionarios">Funcionários</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../listar_pacientes/">Pacientes</a>
                                 <div class="dropdown-divider"></div>
