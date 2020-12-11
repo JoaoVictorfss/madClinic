@@ -5,9 +5,9 @@ $pdo = mysqlConnect();
 try {
 
   $sql = <<<SQL
-      SELECT p.codigo as codigo, nome, email, telefone, cep, logradouro, bairro, cidade, estado, data_contrato, salario
-      FROM pessoa p
-      JOIN funcionario func
+                SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
+                  data_contrato, salario
+                FROM pessoa INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
       SQL;
 
   $stmt = $pdo->query($sql);
@@ -46,7 +46,6 @@ try {
           <caption>Lista de funcionário</caption>
           <thead class="table-primary">
             <tr>
-              <th scope="col">Código</th>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Telefone</th>
@@ -67,7 +66,6 @@ try {
               $telefone = htmlspecialchars($row['telefone']);
               $email = htmlspecialchars($row['email']);
               $nome = htmlspecialchars($row['nome']);
-              $codigo = htmlspecialchars($row['codigo']);
               $cep = htmlspecialchars($row['cep']);
               $logradouro = htmlspecialchars($row['logradouro']);
               $bairro = htmlspecialchars($row['bairro']);
@@ -78,8 +76,7 @@ try {
               $salario = htmlspecialchars($row['salario']);
               echo <<<HTML
           <tr>
-            <td scope="row">$codigo</td> 
-             <td>$nome</td>
+            <td scope="row">$nome</td>
             <td>$email</td>
             <td>$telefone</td>
             <td>$cep</td>

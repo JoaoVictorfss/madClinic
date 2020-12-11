@@ -1,16 +1,13 @@
 <?php
-
-session_start();
-
 require "../../config/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {
 
   $sql = <<<SQL
-      SELECT pac.codigo as codigo, nome, email, telefone, cep, logradouro, bairro, cidade, estado, peso, altura, tipo_sanguineo
-      FROM pessoa p
-      JOIN paciente pac
+        SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
+          peso, altura, tipo_sanguineo
+        FROM pessoa INNER JOIN paciente ON pessoa.codigo = paciente.codigo
       SQL;
 
   $stmt = $pdo->query($sql);
@@ -49,7 +46,6 @@ try {
           <caption>Lista de pacientes</caption>
           <thead class="table-primary">
             <tr>
-              <th scope="col">Código</th>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Telefone</th>
@@ -71,7 +67,6 @@ try {
               $telefone = htmlspecialchars($row['telefone']);
               $email = htmlspecialchars($row['email']);
               $nome = htmlspecialchars($row['nome']);
-              $codigo = htmlspecialchars($row['codigo']);   
               $cep = htmlspecialchars($row['cep']);
               $logradouro = htmlspecialchars($row['logradouro']);
               $bairro = htmlspecialchars($row['bairro']);
@@ -79,11 +74,11 @@ try {
               $estado = htmlspecialchars($row['estado']);
               $peso = htmlspecialchars($row['peso']);
               $altura = htmlspecialchars($row['altura']);
-              $tipo_sanguineo =htmlspecialchars($row['tipo_sanguineo']);
+              $tipo_sanguineo = htmlspecialchars($row['tipo_sanguineo']);
               echo <<<HTML
           <tr>
-            <td scope="row">$codigo</td> 
-             <td>$nome</td>
+
+            <td scope="row" >$nome</td>
             <td>$email</td>
             <td>$telefone</td>
             <td>$cep</td>
