@@ -1,20 +1,26 @@
 <?php
-session_start();
+  session_start();
+  if(!isset($_SESSION["codigo"])) {
+    header("Location: ../home/");
+    exit();
+  }
+?>
 
-require "../../config/conexaoMysql.php";
-$pdo = mysqlConnect();
+<?php
+  require "../../config/conexaoMysql.php";
+  $pdo = mysqlConnect();
 
-try {
+  try {
 
-  $sql = <<<SQL
-        SELECT cep, logradouro, bairro, cidade, estado
-        FROM base_enderecos_ajax 
-  SQL;
+    $sql = <<<SQL
+          SELECT cep, logradouro, bairro, cidade, estado
+          FROM base_enderecos_ajax 
+    SQL;
 
-  $stmt = $pdo->query($sql);
-} catch (Exception $e) {
-  exit('Ocorreu uma falha: ' . $e->getMessage());
-}
+    $stmt = $pdo->query($sql);
+  } catch (Exception $e) {
+    exit('Ocorreu uma falha: ' . $e->getMessage());
+  }
 ?>
 
 <!doctype html>

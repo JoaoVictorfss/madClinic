@@ -1,20 +1,27 @@
 <?php
-session_start();
-require "../../config/conexaoMysql.php";
-$pdo = mysqlConnect();
+  session_start();
+  if(!isset($_SESSION["codigo"])) {
+    header("Location: ../home/");
+    exit();
+  }
+?>
 
-try {
+<?php
+  require "../../config/conexaoMysql.php";
+  $pdo = mysqlConnect();
 
-  $sql = <<<SQL
-        SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
-          peso, altura, tipo_sanguineo
-        FROM pessoa INNER JOIN paciente ON pessoa.codigo = paciente.codigo
-      SQL;
+  try {
 
-  $stmt = $pdo->query($sql);
-} catch (Exception $e) {
-  exit('Ocorreu uma falha: ' . $e->getMessage());
-}
+    $sql = <<<SQL
+          SELECT nome, email, telefone, cep, logradouro, bairro, cidade, estado,
+            peso, altura, tipo_sanguineo
+          FROM pessoa INNER JOIN paciente ON pessoa.codigo = paciente.codigo
+        SQL;
+
+    $stmt = $pdo->query($sql);
+  } catch (Exception $e) {
+    exit('Ocorreu uma falha: ' . $e->getMessage());
+  }
 ?>
 
 <!doctype html>

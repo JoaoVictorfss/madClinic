@@ -1,5 +1,12 @@
 <?php
-session_start();
+  session_start();
+  if(!isset($_SESSION["codigo"])) {
+    header("Location: ../home/");
+    exit();
+  }
+?>
+
+<?php
 require "../../config/conexaoMysql.php";
 $pdo = mysqlConnect();
 
