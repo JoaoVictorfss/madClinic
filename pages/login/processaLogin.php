@@ -25,14 +25,14 @@
   WHERE medico.codigo = ?
   SQL;
 
-  try {
+  try {    
     $stmt = $pdo->prepare($sql1);
     $stmt->execute([$email]);
     $row = $stmt->fetch();
 
-    if(!$row) {
-      echo "<script>window.alert('Email não encontrado!');</script>";
-    } else if(password_verify($senha, $row["senha_hash"])) {
+    if(!$row)
+      header("Location: index.php?email_error");
+    else if(password_verify($senha, $row["senha_hash"])) {
       
         $_SESSION["nome"]  = $row["nome"];
         $_SESSION["email"] = $email;
@@ -41,16 +41,14 @@
         $stmt = $pdo->prepare($sql2);
         $stmt->execute([$_SESSION["codigo"]]);
         $row = $stmt->fetch();
+        $_SESSION["medico"] = isset($row["codigo"]);
 
-        if(isset($row["codigo"])) {
-          $_SESSION["medico"] = true;
-        }
+        header("Location: ../home/");
 
-        // require "../home";
+    } else
+      header("Location: index.php?password_error");
 
-      } else {
-        echo "<script>window.alert('Senha incorreta');</script>";
-      }
+    exit();
 
   } catch (Exception $e) {
       exit('Falha ao validar dados: ' . $e->getMessage());

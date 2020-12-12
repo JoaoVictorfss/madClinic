@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
   <div class="container">
     <main>
       <div class="loginBox">
@@ -39,6 +40,16 @@
             </label>
           </div>
 
+          <?php
+            if(isset($_GET["email_error"]))
+              echo <<< HTML
+              <div class="alert alert-warning alert-dismissible" role="alert">
+                <strong>Email não encontrado</strong>
+                <button type="button" class="btn-close" data-dismiss="alert"></button>
+              </div>
+              HTML;
+          ?>
+
           <div class="form-floating mt-2">
             <input class="form-control" type="password" id="senha" name="senha" placeholder="sua senha">
             <span></span>
@@ -51,6 +62,16 @@
             </label>
           </div>
 
+          <?php
+            if(isset($_GET["password_error"]))
+              echo <<< HTML
+              <div class="alert alert-warning alert-dismissible" role="alert">
+                <strong>Senha inválida</strong>
+                <button type="button" class="btn-close" data-dismiss="alert"></button>
+              </div>
+              HTML;
+          ?>
+
           <div>
             <button type="submit" class="btn btn-primary mt-2">
               Entrar
@@ -59,12 +80,25 @@
                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
               </svg>
             </button>
+
+            <a href="../home/" class="btn btn-secondary mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+              </svg>
+            </a>
+
           </div>
 
         </form>
       </div>
     </main>
   </div>
+
+   <!-- JavaScript Bundle with Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous">
+  </script>
+
 </body>
 
 </html>
