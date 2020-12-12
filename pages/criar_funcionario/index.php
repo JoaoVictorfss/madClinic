@@ -172,7 +172,7 @@ if (!isset($_SESSION["codigo"])) {
           </svg>
         </span>
       </div>
-HTML;
+      HTML;
     }
     ?>
 
@@ -188,7 +188,7 @@ HTML;
           </svg>
         </span>
       </div>
-HTML;
+      HTML;
     }
     ?>
 
@@ -204,7 +204,7 @@ HTML;
           </svg>
         </span>
       </div>
-HTML;
+      HTML;
     }
     ?>
 

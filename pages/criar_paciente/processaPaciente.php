@@ -1,5 +1,5 @@
 <?php
-  require "../../config/conexaoMysql.php";
+  	require "../../config/conexaoMysql.php";
 	$pdo = mysqlConnect();
 
 	// Inicializa e resgata dados do cliente
