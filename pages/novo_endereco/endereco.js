@@ -1,13 +1,11 @@
  window.onload = function () {
    document.forms.formEndereco.onsubmit = validaForm;
+   const fechar = document.getElementById("fechar");
+   fechar.addEventListener("click", fecharAlerta);
  }
 
- function validaCampo(valor, validador) {
-   if (!valor.length) {
-     return "campo obrigatório";
-   } else if (validador && !validador.test(valor)) {
-     return "formato inválido";
-   } else return "";
+ function fecharAlerta() {
+   document.getElementById('alerta').remove();
  }
 
  function validaForm(e) {

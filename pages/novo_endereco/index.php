@@ -1,5 +1,6 @@
 <?php
-  session_start();
+session_start();
+if (isset($_GET["cadastro"])) $cad = $_GET["cadastro"];
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,8 @@
   ?>
 
   <script src="./endereco.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  
   <title>MAD Clinic - Cadastrar Endereço</title>
 </head>
 
@@ -97,6 +100,23 @@
         </div>
       </form>
     </main>
+
+    <?php
+    if ($cad == "1") {
+      echo <<<HTML
+      <div class="alerta alert-success" id="alerta">
+        <strong>Sucesso!</strong> Endereço cadastrado com sucesso.
+        <span id="fechar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </span>
+      </div>
+HTML;
+    }
+    ?>
+
   </div>
 
   <?php
