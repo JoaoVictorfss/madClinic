@@ -8,6 +8,14 @@
    document.getElementById('alerta').remove();
  }
 
+ function validaCampo(valor, validador) {
+  if (!valor.length) {
+    return "campo obrigatório";
+  } else if (validador && !validador.test(valor)) {
+    return "formato inválido";
+  } else return "";
+ }
+
  function validaForm(e) {
    let form = e.target; //Dá acesso ao botão disparado
 
