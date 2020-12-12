@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (isset($_GET["cadastro"])) $cad = $_GET["cadastro"];
 if (!isset($_SESSION["codigo"])) {
   header("Location: ../home/");
   exit();
