@@ -1,5 +1,9 @@
 <?php
   session_start();
+  if(isset($_SESSION["codigo"])) {
+    header("Location: ../home/");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>

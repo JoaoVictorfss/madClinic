@@ -29,7 +29,7 @@
             <?php
                 if(isset($_SESSION["nome"])) {
                     $nome = $_SESSION["nome"];
-                    echo "<h1>Bem vindo $nome</h1>";
+                    echo "<h1>Bem vindo(a) $nome</h1>";
                 }
             ?>
 
