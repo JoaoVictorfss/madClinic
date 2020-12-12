@@ -1,0 +1,21 @@
+    .alerta {
+      position: absolute;
+      bottom: 20%;
+      right: 8%;
+      z-index: 1;
+
+      padding: 14px;
+      border-radius: 12px;
+
+      animation: alerta 0.5s linear;
+    }
+
+    @keyframes alerta {
+      from {
+        right: 0px;
+      }
+
+      to {
+        right: 8%;
+      }
+    }
