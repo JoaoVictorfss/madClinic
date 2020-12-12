@@ -1,6 +1,13 @@
 window.onload = function () {
   document.forms.formPaciente.onsubmit = validaForm;
-}
+
+  const fechar = document.getElementById("fechar");
+  fechar.addEventListener("click", fecharAlerta);
+ }
+
+ function fecharAlerta() {
+   document.getElementById('alerta').remove();
+ }
 
 function validaCampo(valor, validador) {
   if (!valor.length) {

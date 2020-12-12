@@ -47,12 +47,17 @@
 		// Efetiva as operações
 		$pdo->commit();
 
-		exit("dados cadastrados com sucesso");
+    echo "<script>window.location.href='index.php?cadastro=1'</script>";
+		exit();
 	} 
 	catch (Exception $e) {
 		$pdo->rollBack();
-		if ($e->errorInfo[1] === 1062)
-			exit('Dados duplicados: ' . $e->getMessage());
-		else
-			exit('Falha ao cadastrar os dados: ' . $e->getMessage());
+		if ($e->errorInfo[1] === 1062){
+	    echo "<script>window.location.href='index.php?cadastro=-1'</script>";
+			exit();
+		}
+		else{
+	  	echo "</script>window.location.href='index.php?cadastro=-2'<script>";
+	  	exit();
 	}
+}

@@ -3,7 +3,14 @@ window.onload = function () {
 
   const tipo = document.getElementById("inputTipo");
   tipo.addEventListener("change", tipoFuncionario);
-}
+
+  const fechar = document.getElementById("fechar");  
+  fechar.addEventListener("click", fecharAlerta);
+ }
+
+ function fecharAlerta() {
+   document.getElementById('alerta').remove();
+ }
 
 function tipoFuncionario(e) {
   const crm = document.getElementById("crm");
