@@ -23,7 +23,7 @@ function validaForm(e) {
   const spanNome = form.inputNome.nextElementSibling;
   const spanEmail = form.inputEmail.nextElementSibling;
   const spanTelefone = form.inputTelefone.nextElementSibling;
-  const spanCep = form.inputCEP.nextElementSibling;
+  const spanCep = form.inputCep.nextElementSibling;
   const spanLogradouro = form.inputLogradouro.nextElementSibling;
   const spanBairro = form.inputBairro.nextElementSibling;
   const spanCidade = form.inputCidade.nextElementSibling;
@@ -40,12 +40,12 @@ function validaForm(e) {
   spanNome.textContent = validaCampo(form.inputNome.value, soLetras);
   spanEmail.textContent = validaCampo(form.inputEmail.value);
   spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);
-  spanCep.textContent = validaCampo(form.inputCEP.value, cep);
+  spanCep.textContent = validaCampo(form.inputCep.value, cep);
   spanLogradouro.textContent = validaCampo(form.inputLogradouro.value, soLetras);
   spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
   spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
   spanPeso.textContent = validaCampo(form.inputPeso.value);
-  spanAltura.textContent = validaCampo(form.inputAltura.value)
+  spanAltura.textContent = validaCampo(form.inputAltura.value);
 
   return (
     !spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent
