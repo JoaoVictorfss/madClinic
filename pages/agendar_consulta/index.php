@@ -31,27 +31,27 @@
     <div class="container mt-3">
       <main>
         <h2>Agendamento</h2>
-        <form name="formEndereco" class="row g-2" action="./agendarConsulta.php" method="POST">
+        <form name="formConsulta" class="row g-2" action="./agendarConsulta.php" method="POST">
           <div class="col-md-4 form-floating ">
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
             <span></span>
             <label for="nome">Nome</label>
           </div>
 
           <div class="col-md-4 form-floating ">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
             <span></span>
             <label for="email">Email</label>
           </div>
 
           <div class="col-md-4 form-floating ">
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone">
+            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
             <span></span>
             <label for="telefone">Telefone</label>
           </div>
 
           <div class="col-md-6 form-floating ">
-            <select id="especialidade" class="form-select" required>
+            <select class="form-select" id="especialidade" required>
               <option disabled selected></option>
               <?php
 
@@ -75,7 +75,7 @@
           </div>
 
           <div class="col-md-6 form-floating ">
-            <select id="medico" class="form-select" required>
+            <select class="form-select" id="medico" name="medico" required>
             </select>
             <label for="medico" class="form-label">Médico</label>
           </div>
@@ -83,14 +83,14 @@
           <div class="col-md-6 form-floating">
             <input type="date" class="form-control" id="data_agendamento"
              name="data_agendamento" placeholder="Data" min=<?php echo date('Y-m-d'); ?>
+             required
             >
             <span></span>
             <label for="data_agendamento">Data</label>
           </div>
 
           <div class="col-md-6 form-floating">
-            <select id="hora" class="form-select" required>
-              
+            <select class="form-select" id="hora" name="hora" required>
             </select>
             <label for="hora" class="form-label">Hora</label>
           </div>

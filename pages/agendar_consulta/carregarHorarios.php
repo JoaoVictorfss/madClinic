@@ -23,7 +23,7 @@
         "17:00:00" => 17,
     );
 
-    $sql= <<<SQL
+    $sql = <<<SQL
     SELECT horario FROM agenda
     WHERE codigo_medico = ? AND data_agendamento = ?
     SQL;

@@ -5,6 +5,42 @@ window.onload = function () {
     select_especialidade.addEventListener('change', carregarMedicos);
     select_data.addEventListener('change', carregarHorarios);
     select_medico.addEventListener('change', resetDate);
+
+    document.forms.formConsulta.onsubmit = validaForm;
+    const fechar = document.getElementById("fechar");
+    fechar.addEventListener("click", fecharAlerta);
+}
+
+function fecharAlerta() {
+    document.getElementById('alerta').remove();
+}
+
+function validaCampo(valor, validador) {
+    if (!valor.length) {
+        return "campo obrigatório";
+    } else if (validador && !validador.test(valor)) {
+        return "formato inválido";
+    } else return "";
+}
+
+function validaForm(e) {
+    let form = e.target; // Dá acesso ao botão disparado
+
+    const spanNome = form.nome.nextElementSibling;
+    const spanEmail = form.email.nextElementSibling;
+    const spanTelefone = form.telefone.nextElementSibling;
+
+
+    // regex para validar entrada
+    const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
+    const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
+
+    //validação 
+    spanNome.textContent = validaCampo(form.nome.value, soLetras);
+    spanEmail.textContent = validaCampo(form.email.value);
+    spanTelefone.textContent = validaCampo(form.telefone.value, telefone);
+
+    return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent);
 }
 
 function resetDate() {
