@@ -12,12 +12,15 @@
     WHERE medico.especialidade = ?
     SQL;
 
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$especialidade]);
-
-    while ($row = $stmt->fetch()) {
-        $nome_medico = $row["nome"];
-        $codigo_medico = $row["codigo"];
-        echo  "<option value='$codigo_medico'>$nome_medico</option>";
+     try {    
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$especialidade]);
+         while ($row = $stmt->fetch()) {
+            $nome_medico = $row["nome"];
+            $codigo_medico = $row["codigo"];
+            echo  "<option value='$codigo_medico'>$nome_medico</option>";
+        }
+    } catch (Exception $e) {
+      exit('Falha ao validar dados: ' . $e->getMessage());
     }
 ?>

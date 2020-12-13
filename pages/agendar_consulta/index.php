@@ -75,17 +75,14 @@
           </div>
 
           <div class="col-md-6 form-floating">
-            <input type="date" class="form-control" id="data" name="data" placeholder="Data">
+            <input type="date" class="form-control" id="data_agendamento" name="data_agendamento" placeholder="Data">
             <span></span>
-            <label for="data">Data</label>
+            <label for="data_agendamento">Data</label>
           </div>
 
           <div class="col-md-6 form-floating">
             <select id="hora" class="form-select" required>
-              <?php
-              for ($i = 8; $i <= 17; $i++)
-                echo "<option value=''> {$i}h</option>";
-              ?>
+              
             </select>
             <label for="hora" class="form-label">Hora</label>
           </div>
