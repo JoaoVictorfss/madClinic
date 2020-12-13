@@ -34,12 +34,12 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../listar_enderecos/">Endereços</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Todos Agendamentos</a>
+                                <a class="dropdown-item" href="../listar_todos_agendamentos/">Todos Agendamentos</a>
                     HTML;
                     if (isset($_SESSION["medico"])) {
                         echo <<< HTML
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Meus Agendamentos</a>
+                            <a class="dropdown-item" href="../listar_meus_agendamentos/">Meus Agendamentos</a>
                         HTML; 
                     }
                     echo <<< HTML
