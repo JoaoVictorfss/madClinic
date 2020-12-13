@@ -9,6 +9,7 @@ window.onload = function () {
 
 function resetDate() {
     document.getElementById("data_agendamento").value = "";
+    document.getElementById("hora").innerHTML = "";
 }
 
 function carregarMedicos(e) {

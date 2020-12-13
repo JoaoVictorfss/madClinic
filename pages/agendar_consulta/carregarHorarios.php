@@ -33,7 +33,7 @@
         $stmt->execute([$codigo_medico, $data_agendamento]);
 
         while($row = $stmt->fetch())
-            unset($horarios[$row["horario"]]);
+            unset($horarios[htmlspecialchars($row["horario"])]);
         
         foreach($horarios as $key => $value)
             echo "<option value='$key'>$value</option>";

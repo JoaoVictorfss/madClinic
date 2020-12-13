@@ -54,15 +54,21 @@
             <select id="especialidade" class="form-select" required>
               <option disabled selected></option>
               <?php
+
                 $sql = <<< SQL
                 SELECT DISTINCT especialidade FROM medico
                 SQL;
 
-                $stmt = $pdo->query($sql);
-                while ($row = $stmt->fetch()) {
-                  $especialidade = $row["especialidade"];
-                  echo  "<option value='$especialidade'>$especialidade</option>";
+                try { 
+                  $stmt = $pdo->query($sql);
+                  while ($row = $stmt->fetch()) {
+                    $especialidade = htmlspecialchars($row["especialidade"]);
+                    echo  "<option value='$especialidade'>$especialidade</option>";
+                  }
+                } catch (Exception $e) {
+                    exit('Falha ao validar dados: ' . $e->getMessage());
                 }
+
               ?>
             </select>
             <label for="especialidade" class="form-label">Especialidade</label>
@@ -75,7 +81,9 @@
           </div>
 
           <div class="col-md-6 form-floating">
-            <input type="date" class="form-control" id="data_agendamento" name="data_agendamento" placeholder="Data">
+            <input type="date" class="form-control" id="data_agendamento"
+             name="data_agendamento" placeholder="Data" min=<?php echo date('Y-m-d'); ?>
+            >
             <span></span>
             <label for="data_agendamento">Data</label>
           </div>

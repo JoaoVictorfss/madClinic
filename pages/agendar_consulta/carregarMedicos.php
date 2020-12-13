@@ -16,8 +16,8 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$especialidade]);
          while ($row = $stmt->fetch()) {
-            $nome_medico = $row["nome"];
-            $codigo_medico = $row["codigo"];
+            $nome_medico = htmlspecialchars($row["nome"]);
+            $codigo_medico = htmlspecialchars($row["codigo"]);
             echo  "<option value='$codigo_medico'>$nome_medico</option>";
         }
     } catch (Exception $e) {
