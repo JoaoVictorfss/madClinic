@@ -32,11 +32,15 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$codigo_medico, $data_agendamento]);
 
+        // remove os horários já marcados com aquele médico
         while($row = $stmt->fetch())
-            unset($horarios[htmlspecialchars($row["horario"])]);
-        
-        foreach($horarios as $key => $value)
-            echo "<option value='$key'>$value</option>";
+            unset($horarios[$row["horario"]]);
+
+        $hora_consulta = new \stdClass(); // iniciando a variável para remover o warning
+        $hora_consulta->value = array_keys($horarios);
+        $hora_consulta->hora = array_values($horarios);
+        $hora_consulta = json_encode($hora_consulta);
+        echo $hora_consulta;
 
     } catch (Exception $e) {
       exit('Falha ao validar dados: ' . $e->getMessage());

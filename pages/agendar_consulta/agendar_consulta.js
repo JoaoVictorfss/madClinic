@@ -49,14 +49,31 @@ function resetDate() {
 }
 
 function carregarMedicos(e) {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "carregarMedicos.php?especialidade=" + e.target.value;
+    const select = document.getElementById("medico");
+    select.innerHTML = "";
+
+    const xmlhttp = new XMLHttpRequest();
+    const url = "carregarMedicos.php?especialidade=" + e.target.value;
     xmlhttp.open("GET", url, true);
 
     xmlhttp.onload = function () {
-        if (xmlhttp.status == 200)
-            document.getElementById("medico").innerHTML = xmlhttp.responseText;
-        else
+        if (xmlhttp.status == 200) {
+            if (xmlhttp.responseText != "") {
+                try {
+                    const medicos = JSON.parse(xmlhttp.responseText);
+                    for (let i = 0; i < medicos.nome.length; i++) {
+                        const option = document.createElement("option");
+                        option.textContent = medicos.nome[i];
+                        option.value = medicos.codigo[i];
+                        select.appendChild(option);
+                    }
+                } catch (e) {
+                    alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
+                }
+            } else {
+                alert("Não foram encontrados médicos com essa especialidade");
+            }
+        } else
             alert("Ocorreu um erro ao processar a requisição");
     }
 
@@ -69,16 +86,30 @@ function carregarMedicos(e) {
 }
 
 function carregarHorarios(e) {
+    const select = document.getElementById("hora");
+    select.innerHTML = "";
+
     const select_medico = document.getElementById("medico").value;
 
-    var xmlhttp = new XMLHttpRequest();
-    var url = "carregarHorarios.php?codigo_medico=" + select_medico + "&" + "data_agendamento=" + e.target.value;
+    const xmlhttp = new XMLHttpRequest();
+    const url = "carregarHorarios.php?codigo_medico=" + select_medico + "&" + "data_agendamento=" + e.target.value;
     xmlhttp.open("GET", url, true);
 
     xmlhttp.onload = function () {
-        if (xmlhttp.status == 200)
-            document.getElementById("hora").innerHTML = xmlhttp.responseText;
-        else
+        if (xmlhttp.status == 200) {
+            if (xmlhttp.responseText != "") {
+                const horarios = JSON.parse(xmlhttp.responseText);
+                for (let i = 0; i < horarios.hora.length; i++) {
+                    const option = document.createElement("option");
+                    option.textContent = horarios.hora[i];
+                    option.value = horarios.value[i];
+                    select.appendChild(option);
+                }
+
+            } else {
+                alert("Não foram encontrados horários disponíveis")
+            }
+        } else
             alert("Ocorreu um erro ao processar a requisição");
     }
 

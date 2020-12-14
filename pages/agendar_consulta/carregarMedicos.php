@@ -15,11 +15,18 @@
      try {    
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$especialidade]);
+
+        $medicos = new \stdClass(); // iniciando a variável para remover o warning
+        $medicos->nome = [];
+        $medicos->codigo = [];
          while ($row = $stmt->fetch()) {
-            $nome_medico = htmlspecialchars($row["nome"]);
-            $codigo_medico = htmlspecialchars($row["codigo"]);
-            echo  "<option value='$codigo_medico'>$nome_medico</option>";
+            $medicos->nome[] = htmlspecialchars($row["nome"]);
+            $medicos->codigo[] = htmlspecialchars($row["codigo"]);
         }
+
+        $medicos = json_encode($medicos);
+        echo $medicos;
+
     } catch (Exception $e) {
       exit('Falha ao validar dados: ' . $e->getMessage());
     }
