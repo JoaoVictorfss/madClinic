@@ -62,7 +62,7 @@ if (!isset($_SESSION["codigo"])) {
           <label for="inputTelefone">Telefone</label>
         </div>
 
-        <div class="col-md-4 form-floating ">
+        <div class="col-md-4 form-floating">
           <input type="text" class="form-control" id="inputCEP" name="inputCEP" placeholder="seu cep">
           <span></span>
           <label for="inputCEP">CEP</label>

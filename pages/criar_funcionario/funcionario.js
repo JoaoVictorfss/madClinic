@@ -4,13 +4,16 @@ window.onload = function () {
   const tipo = document.getElementById("inputTipo");
   tipo.addEventListener("change", tipoFuncionario);
 
-  const fechar = document.getElementById("fechar");  
-  fechar.addEventListener("click", fecharAlerta);
- }
+  const fechar = document.getElementById("fechar");
+  if(fechar) fechar.addEventListener("click", fecharAlerta);
 
- function fecharAlerta() {
-   document.getElementById('alerta').remove();
- }
+  const cep = document.getElementById("inputCEP");
+  cep.addEventListener("change", (e) => buscaEndereco(cep.value));
+}
+
+function fecharAlerta() {
+  document.getElementById('alerta').remove();
+}
 
 function tipoFuncionario(e) {
   const crm = document.getElementById("crm");
@@ -21,6 +24,38 @@ function tipoFuncionario(e) {
   } else {
     crm.classList.add("disable");
     especialidade.classList.add("disable");
+  }
+}
+
+function buscaEndereco(cep) {
+  if (cep.length != 9) {
+    return;
+  }
+
+  const form = document.forms[0];
+
+  const xmlhttp = new XMLHttpRequest();
+
+  const url = `carregarEndereco.php?cep=${cep}`;
+  
+  xmlhttp.open("GET", url, true);
+  xmlhttp.onload = function (e) {
+    if (xmlhttp.status == 200) {
+      if (xmlhttp.responseText != "") {
+        try {
+          const{logradouro, bairro, cidade, estado}= JSON.parse(xmlhttp.responseText);
+          form.inputLogradouro. value = logradouro
+          form.inputBairro.value = bairro;
+          form.inputCidade.value = cidade;
+          form.estado.value = estado;
+        } catch (e) {
+          alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
+        }
+      }
+    }
+    xmlhttp.onerror = () => alert("Ocorreu um erro ao processar a requisição");
+
+    xmlhttp.send();
   }
 }
 

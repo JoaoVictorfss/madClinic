@@ -2,7 +2,7 @@ window.onload = function () {
   document.forms.formPaciente.onsubmit = validaForm;
 
   const fechar = document.getElementById("fechar");
-  fechar.addEventListener("click", fecharAlerta);
+  if(fechar) fechar.addEventListener("click", fecharAlerta);
  }
 
  function fecharAlerta() {
