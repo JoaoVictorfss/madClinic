@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +24,6 @@
 
     <div class="container">
         <main>
-
-            <?php
-                if(isset($_SESSION["nome"])) {
-                    $nome = $_SESSION["nome"];
-                    echo "<h1>Bem vindo(a) $nome</h1>";
-                }
-            ?>
-
             <section>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -41,16 +33,16 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="descricao2 d-block"></div>
-                            <div class="carousel-caption d-none d-md-block text-dark">
+                            <div class="carousel-caption d-none d-md-block" style="background-color:rgba(123, 164, 226, 0.4)!important; color:#1C1C1C;">
                                 <h4>Profissionalismo</h4>
-                                <p>Temos os melhores profissionais do mercado</p>
+                                <p>Conte com os melhores profissionais do mercado!</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="descricao d-block"></div>
-                            <div class="carousel-caption d-none d-md-block text-dark">
+                            <div class="carousel-caption d-none d-md-block" style="background-color:rgba(123, 164, 226, 0.4)!important;color:#1C1C1C;">
                                 <h4>Conforto</h4>
-                                    <p>Temos equipamentos com tecnologia de ponta, pensando em você</p>
+                                <p>Possuímos uma ótima estrutura física,  proporcionando conforto e qualidade aos nossos clientes e colaboradores.</p>
                             </div>
                         </div>
                     </div>

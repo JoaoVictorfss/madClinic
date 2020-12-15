@@ -17,7 +17,6 @@ function buscaEndereco(cep) {
   }
   const form = document.forms[1];
 
-  console.log(form)
   const xmlhttp = new XMLHttpRequest();
   const url = `carregarEndereco.php?cep=${cep}`;
   xmlhttp.open("GET", url, true);
@@ -66,7 +65,6 @@ function tipoFuncionario(e) {
     especialidade.classList.add("disable");
   }
 }
-
 
 function validaCampo(valor, validador) {
   if (!valor.length) {
