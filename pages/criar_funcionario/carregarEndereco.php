@@ -18,15 +18,15 @@ try {
   $stmt->execute([$cep]);
 
   $endereco = new \stdClass();
-  $endereco->logradouro = [];
-  $endereco->bairro = [];
-  $endereco->cidade = [];
-  $endereco->estado = [];
+  $endereco->logradouro;
+  $endereco->bairro;
+  $endereco->cidade;
+  $endereco->estado;
   while ($row = $stmt->fetch()) {
-    $endereco->logradouro []= htmlspecialchars($row["logradouro"]);
-    $endereco->bairro[] = htmlspecialchars($row["bairro"]);
-    $endereco->cidade[] = htmlspecialchars($row["cidade"]);
-    $endereco->estado[] = htmlspecialchars($row["estado"]);
+    $endereco->logradouro = htmlspecialchars($row["logradouro"]);
+    $endereco->bairro = htmlspecialchars($row["bairro"]);
+    $endereco->cidade = htmlspecialchars($row["cidade"]);
+    $endereco->estado = htmlspecialchars($row["estado"]);
   }
 
   $endereco = json_encode($endereco);
