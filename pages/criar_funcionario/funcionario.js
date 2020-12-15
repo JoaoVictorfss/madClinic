@@ -99,13 +99,16 @@ function validaForm(e) {
   //validação 
   spanNome.textContent = validaCampo(form.inputNome.value, soLetras);
   spanEmail.textContent = validaCampo(form.inputEmail.value);
-  spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);
-  spanCep.textContent = validaCampo(form.inputCEP.value, cep);
-  spanLogradouro.textContent = validaCampo(form.inputLogradouro.value, soLetras);
+  spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);  
+  spanLogradouro.textContent = validaCampo(form.inputLogradouro.value);
   spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
   spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
   spanDataInicio.textContent = validaCampo(form.inputDataInicio.value);
   spanSalario.textContent = validaCampo(form.inputSalario.value)
+
+  spanCep.textContent = validaCampo(form.inputCEP.value.length, cep);
+  if (!spanCep.textContent && form.inputCEP.value != 9)
+    spanCep.textContent = "formato inválido";
 
   spanSenha.textContent = validaCampo(form.inputSenha.value);
   if (!spanSenha.textContent && form.inputSenha.value.length <= 6)

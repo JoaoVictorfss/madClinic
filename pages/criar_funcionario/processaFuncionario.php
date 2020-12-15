@@ -78,15 +78,15 @@
     $pdo->commit();
     echo "<script>window.location.href='index.php?cadastro=1'</script>";
     exit();
-    } catch (Exception $e) {
+  } catch (Exception $e) {
     //Desfaz as operações
-      $pdo->rollBack();
-      if ($e->errorInfo[1] === 1062){
-        echo "<script>window.location.href='index.php?cadastro=-1'</script>";
-        exit();
-      } else {
-        echo "</script>window.location.href='index.php?cadastro=-2'<script>";
-        exit();
-      }
+    $pdo->rollBack();
+    if ($e->errorInfo[1] === 1062) {
+      echo "<script>window.location.href='index.php?cadastro=-1'</script>";
+      exit();
+    } else {
+      echo "</script>window.location.href='index.php?cadastro=-2'<script>";
+      exit();
+    }
   }
   ?>

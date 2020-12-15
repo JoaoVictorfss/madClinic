@@ -27,8 +27,11 @@
    const cep = /\d{5}-\d{3}/;
    const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
 
-   spanCep.textContent = validaCampo(form.inputCEP.value, cep);
-   spanLogradouro.textContent = validaCampo(form.inputLogradouro.value, soLetras);
+  spanCep.textContent = validaCampo(form.inputCEP.value, cep);
+  if (!spanCep.textContent && form.inputCEP.value.length != 9)
+    spanCep.textContent = "formato inválido";
+   
+   spanLogradouro.textContent = validaCampo(form.inputLogradouro.value);
    spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
    spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
 
