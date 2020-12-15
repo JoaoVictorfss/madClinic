@@ -106,7 +106,7 @@ function validaForm(e) {
   spanSalario.textContent = validaCampo(form.inputSalario.value);
 
   spanCep.textContent = validaCampo(form.inputCEP.value, cep);
-  if (! spanCep.textContent && form.inputCEP.value != 9) 
+  if (! spanCep.textContent && form.inputCEP.value.lenght != 9) 
     spanCep.textContent = "formato inválido";
 
   spanSenha.textContent = validaCampo(form.inputSenha.value);
