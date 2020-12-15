@@ -4,7 +4,7 @@ if (isset($_GET["cep"]))
 else
   exit();
 
-require "conexaoMysql.php";
+require "../../config/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $sql = <<< SQL
@@ -31,7 +31,6 @@ try {
 
   $endereco = json_encode($endereco);
   echo $endereco;
-  
 } catch (Exception $e) {
   exit('Ocorreu uma falha: ' . $e->getMessage());
 }

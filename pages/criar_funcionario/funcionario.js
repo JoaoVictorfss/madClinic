@@ -5,10 +5,50 @@ window.onload = function () {
   tipo.addEventListener("change", tipoFuncionario);
 
   const fechar = document.getElementById("fechar");
-  if(fechar) fechar.addEventListener("click", fecharAlerta);
+  if (fechar) fechar.addEventListener("click", fecharAlerta);
 
   const cep = document.getElementById("inputCEP");
   cep.addEventListener("change", (e) => buscaEndereco(cep.value));
+}
+
+function buscaEndereco(cep) {
+  if (cep.length != 9) {
+    return;
+  }
+  const form = document.forms[1];
+
+  console.log(form)
+  const xmlhttp = new XMLHttpRequest();
+  const url = `carregarEndereco.php?cep=${cep}`;
+  xmlhttp.open("GET", url, true);
+
+  xmlhttp.onload = function () {
+    if (xmlhttp.status == 200) {
+      if (xmlhttp.responseText != "") {
+        try {
+          const {
+            logradouro,
+            bairro,
+            cidade,
+            estado
+          } = JSON.parse(xmlhttp.responseText);
+          form.inputLogradouro.value = logradouro
+          form.inputBairro.value = bairro;
+          form.inputCidade.value = cidade;
+          form.estado.value = estado;
+        } catch (e) {
+          alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
+        }
+      }
+    } else
+      alert("Ocorreu um erro ao processar a requisição");
+  }
+
+  xmlhttp.onerror = function () {
+    alert("Ocorreu um erro ao processar a requisição");
+  };
+
+  xmlhttp.send();
 }
 
 function fecharAlerta() {
@@ -27,37 +67,6 @@ function tipoFuncionario(e) {
   }
 }
 
-function buscaEndereco(cep) {
-  if (cep.length != 9) {
-    return;
-  }
-
-  const form = document.forms[0];
-
-  const xmlhttp = new XMLHttpRequest();
-
-  const url = `carregarEndereco.php?cep=${cep}`;
-  
-  xmlhttp.open("GET", url, true);
-  xmlhttp.onload = function (e) {
-    if (xmlhttp.status == 200) {
-      if (xmlhttp.responseText != "") {
-        try {
-          const{logradouro, bairro, cidade, estado}= JSON.parse(xmlhttp.responseText);
-          form.inputLogradouro.value = logradouro
-          form.inputBairro.value = bairro;
-          form.inputCidade.value = cidade;
-          form.estado.value = estado;
-        } catch (e) {
-          alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
-        }
-      }
-    }
-    xmlhttp.onerror = () => alert("Ocorreu um erro ao processar a requisição");
-
-    xmlhttp.send();
-  }
-}
 
 function validaCampo(valor, validador) {
   if (!valor.length) {
