@@ -15,12 +15,13 @@ function buscaEndereco(cep) {
   if (cep.length != 9) {
     return;
   }
+  
   const form = document.forms[1];
-
+  
   const xmlhttp = new XMLHttpRequest();
   const url = `carregarEndereco.php?cep=${cep}`;
+  
   xmlhttp.open("GET", url, true);
-
   xmlhttp.onload = function () {
     if (xmlhttp.status == 200) {
       if (xmlhttp.responseText != "") {
