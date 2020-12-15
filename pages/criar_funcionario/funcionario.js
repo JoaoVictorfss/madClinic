@@ -44,7 +44,7 @@ function buscaEndereco(cep) {
       if (xmlhttp.responseText != "") {
         try {
           const{logradouro, bairro, cidade, estado}= JSON.parse(xmlhttp.responseText);
-          form.inputLogradouro. value = logradouro
+          form.inputLogradouro.value = logradouro
           form.inputBairro.value = bairro;
           form.inputCidade.value = cidade;
           form.estado.value = estado;
