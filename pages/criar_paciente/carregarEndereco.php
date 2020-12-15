@@ -22,6 +22,7 @@ try {
   $endereco->bairro;
   $endereco->cidade;
   $endereco->estado;
+  
   while ($row = $stmt->fetch()) {
     $endereco->logradouro = htmlspecialchars($row["logradouro"]);
     $endereco->bairro = htmlspecialchars($row["bairro"]);

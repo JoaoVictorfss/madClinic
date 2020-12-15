@@ -5,34 +5,31 @@ window.onload = function () {
   tipo.addEventListener("change", tipoFuncionario);
 
   const fechar = document.getElementById("fechar");
-  if (fechar) fechar.addEventListener("click", fecharAlerta);
+  if (fechar) 
+    fechar.addEventListener("click", fecharAlerta);
 
   const cep = document.getElementById("inputCEP");
   cep.addEventListener("change", (e) => buscaEndereco(cep.value));
-}
+};
 
 function buscaEndereco(cep) {
   if (cep.length != 9) {
     return;
   }
-  
+
   const form = document.forms[1];
-  
+
   const xmlhttp = new XMLHttpRequest();
   const url = `carregarEndereco.php?cep=${cep}`;
-  
+
   xmlhttp.open("GET", url, true);
   xmlhttp.onload = function () {
     if (xmlhttp.status == 200) {
       if (xmlhttp.responseText != "") {
         try {
-          const {
-            logradouro,
-            bairro,
-            cidade,
-            estado
-          } = JSON.parse(xmlhttp.responseText);
-          form.inputLogradouro.value = logradouro
+          const {logradouro, bairro, cidade, estado} = JSON.parse(xmlhttp.responseText);
+
+          form.inputLogradouro.value = logradouro;
           form.inputBairro.value = bairro;
           form.inputCidade.value = cidade;
           form.estado.value = estado;
@@ -40,9 +37,9 @@ function buscaEndereco(cep) {
           alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
         }
       }
-    } else
+    } else 
       alert("Ocorreu um erro ao processar a requisição");
-  }
+  };
 
   xmlhttp.onerror = function () {
     alert("Ocorreu um erro ao processar a requisição");
@@ -52,12 +49,13 @@ function buscaEndereco(cep) {
 }
 
 function fecharAlerta() {
-  document.getElementById('alerta').remove();
+  document.getElementById("alerta").remove();
 }
 
 function tipoFuncionario(e) {
   const crm = document.getElementById("crm");
   const especialidade = document.getElementById("esp");
+
   if (e.target.value === "md") {
     crm.classList.remove("disable");
     especialidade.classList.remove("disable");
@@ -68,11 +66,12 @@ function tipoFuncionario(e) {
 }
 
 function validaCampo(valor, validador) {
-  if (!valor.length) {
+  if (! valor.length) {
     return "campo obrigatório";
-  } else if (validador && !validador.test(valor)) {
+  } else if (validador && ! validador.test(valor)) {
     return "formato inválido";
-  } else return "";
+  } else 
+    return "";
 }
 
 function validaForm(e) {
@@ -96,25 +95,25 @@ function validaForm(e) {
   const cep = /\d{5}-\d{3}/;
   const soLetras = /[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
 
-  //validação 
+  // validação
   spanNome.textContent = validaCampo(form.inputNome.value, soLetras);
   spanEmail.textContent = validaCampo(form.inputEmail.value);
-  spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);  
+  spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);
   spanLogradouro.textContent = validaCampo(form.inputLogradouro.value);
   spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
   spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
   spanDataInicio.textContent = validaCampo(form.inputDataInicio.value);
-  spanSalario.textContent = validaCampo(form.inputSalario.value)
+  spanSalario.textContent = validaCampo(form.inputSalario.value);
 
   spanCep.textContent = validaCampo(form.inputCEP.value.length, cep);
-  if (!spanCep.textContent && form.inputCEP.value != 9)
+  if (! spanCep.textContent && form.inputCEP.value != 9) 
     spanCep.textContent = "formato inválido";
 
   spanSenha.textContent = validaCampo(form.inputSenha.value);
-  if (!spanSenha.textContent && form.inputSenha.value.length <= 6)
+  if (! spanSenha.textContent && form.inputSenha.value.length <= 6) 
     spanSenha.textContent = "senha pequena";
 
-  //validação do input de especialidade do médico
+  // validação do input de especialidade do médico
   if (form.inputTipo.value == "md") {
     spanCrm.textContent = validaCampo(form.inputCrm.value);
     spanEspecialidade.textContent = validaCampo(form.inputEspecialidade.value, soLetras);
@@ -123,8 +122,5 @@ function validaForm(e) {
     spanCrm.textContent = "";
   }
 
-  return (
-    !spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent &&
-    !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent && !spanEspecialidade.textContent
-  );
+  return(! spanNome.textContent && ! spanEmail.textContent && ! spanTelefone.textContent && ! spanCep.textContent && ! spanLogradouro.textContent && ! spanBairro.textContent && ! spanCidade.textContent && ! spanDataInicio.textContent && ! spanSalario.textContent && ! spanSenha.textContent && ! spanCrm.textContent && ! spanEspecialidade.textContent);
 }

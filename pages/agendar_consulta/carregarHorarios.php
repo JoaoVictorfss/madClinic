@@ -1,6 +1,6 @@
 <?php
-
     $codigo_medico = $data_agendamento = "";
+    
     if(isset($_GET["codigo_medico"]) && isset($_GET["data_agendamento"])) {
         $codigo_medico = $_GET["codigo_medico"];
         $data_agendamento = date('Y-m-d', strtotime($_GET["data_agendamento"]));

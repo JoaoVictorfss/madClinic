@@ -1,5 +1,6 @@
 <?php
-  	require "../../config/conexaoMysql.php";
+
+  require "../../config/conexaoMysql.php";
 	$pdo = mysqlConnect();
 
 	// Inicializa e resgata dados do cliente
@@ -8,6 +9,7 @@
 	$peso = $altura = $tipo_sanguineo = "";
 
 	$datanascimento = $estadocivil = $altura = "";
+	
 	if (isset($_POST["inputNome"])) $nome = $_POST["inputNome"];
 	if (isset($_POST["inputEmail"])) $email = $_POST["inputEmail"];
 	if (isset($_POST["inputTelefone"])) $telefone = $_POST["inputTelefone"];

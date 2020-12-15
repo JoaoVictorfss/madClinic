@@ -24,6 +24,7 @@
   if (isset($_POST["inputDataInicio"])) $data_contrato = $_POST["inputDataInicio"];
   if (isset($_POST["inputSalario"])) $salario = $_POST["inputSalario"];
   if (isset($_POST["inputSenha"])) $senha = $_POST["inputSenha"];
+  
   // calcula um hash de senha seguro para armazenar no BD
   $hashsenha = password_hash($senha, PASSWORD_DEFAULT);
 

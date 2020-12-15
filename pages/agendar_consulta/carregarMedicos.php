@@ -19,6 +19,7 @@
         $medicos = new \stdClass(); // iniciando a variável para remover o warning
         $medicos->nome = [];
         $medicos->codigo = [];
+        
          while ($row = $stmt->fetch()) {
             $medicos->nome[] = htmlspecialchars($row["nome"]);
             $medicos->codigo[] = htmlspecialchars($row["codigo"]);

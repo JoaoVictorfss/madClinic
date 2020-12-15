@@ -3,6 +3,7 @@
   $pdo = mysqlConnect();
 
   $cep = $logradouro =  $bairro = $cidade = $estado =  "";
+
   //validação de dados
   if (isset($_POST["inputCEP"])) $cep = ($_POST["inputCEP"]);
   if (isset($_POST["inputLogradouro"])) $logradouro = ($_POST["inputLogradouro"]);
@@ -10,11 +11,9 @@
   if (isset($_POST["inputCidade"])) $cidade = ($_POST["inputCidade"]);
   if (isset($_POST["inputEstado"])) $estado = $_POST["inputEstado"];
 
-  //fim validação
   try {
     $sql = <<<SQL
-    INSERT INTO base_enderecos_ajax (cep, logradouro, bairro, cidade, 
-                        estado)
+    INSERT INTO base_enderecos_ajax (cep, logradouro, bairro, cidade, estado)
     VALUES (?, ?, ?, ?, ?)
     SQL;
 
