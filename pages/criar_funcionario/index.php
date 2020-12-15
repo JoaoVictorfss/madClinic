@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/novo_endereco/processaFuncionario.php";
+$url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/criar_funcionario/processaFuncionario.php";
 if (isset($_GET["cadastro"]) && $_SERVER['HTTP_REFERER'] == $url_anterior) $cad = $_GET["cadastro"];
 
 if (!isset($_SESSION["codigo"])) {
