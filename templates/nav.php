@@ -36,7 +36,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../listar_todos_agendamentos/">Todos Agendamentos</a>
                     HTML;
-                    if (isset($_SESSION["medico"])) {
+                    if (isset($_SESSION["medico"]) && $_SESSION["medico"]) {
                         echo <<< HTML
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../listar_meus_agendamentos/">Meus Agendamentos</a>

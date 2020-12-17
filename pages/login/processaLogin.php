@@ -40,8 +40,7 @@
 
         $stmt = $pdo->prepare($sql2);
         $stmt->execute([$_SESSION["codigo"]]);
-        $row = $stmt->fetch();
-        $_SESSION["medico"] = isset($row["codigo"]);
+        $_SESSION["medico"] = $stmt->fetchColumn();
 
         header("Location: ../home/");
 
