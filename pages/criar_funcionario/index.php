@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 
   // $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/criar_funcionario/processaFuncionario.php";
   $url_anterior = "http://trabalho-final-ppi-2020-2-mateus-joao.atwebpages.com/Trabalho_final/pages/criar_funcionario/processaFuncionario.php";

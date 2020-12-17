@@ -28,8 +28,7 @@
             <?php
                 if(isset($_SESSION["saudacao"]) && $_SESSION["saudacao"]) {
                     $nome = $_SESSION['nome'];
-                    echo  "<div class='alert alert-success alert-dismissible' role='alert'>";
-                    echo    "<h2>Bem vindo(a) $nome</h2>";
+                    echo  "<div class='alert alert-success alert-dismissible' role='alert'>Bem vindo(a) $nome";
                     echo <<< HTML
                         <button type="button" class="btn-close" data-dismiss="alert"></button>
                     </div> 
