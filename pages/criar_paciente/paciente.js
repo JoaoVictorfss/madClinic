@@ -2,9 +2,9 @@ window.onload = function () {
   document.forms.formPaciente.onsubmit = validaForm;
 
   const fechar = document.getElementById("fechar");
-  if (fechar) 
+  if (fechar)
     fechar.addEventListener("click", fecharAlerta);
-  
+
   const cep = document.getElementById("inputCep");
   cep.addEventListener("change", (e) => buscaEndereco(cep.value));
 }
@@ -24,18 +24,23 @@ function buscaEndereco(cep) {
       if (xmlhttp.responseText != "") {
         try {
           const { logradouro, bairro, cidade, estado } = JSON.parse(xmlhttp.responseText);
-          
-          form.inputLogradouro.value = logradouro
-          form.inputBairro.value = bairro;
-          form.inputCidade.value = cidade;
-          form.inputEstado.value = estado;
+
+          if (logradouro !== undefined)
+            form.inputLogradouro.value = logradouro;
+          if (bairro !== undefined)
+            form.inputBairro.value = bairro;
+          if (cidade !== undefined)
+            form.inputCidade.value = cidade;
+          if (estado !== undefined)
+            form.inputEstado.value = estado;
+
         } catch (e) {
           alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
         }
       }
-    } else 
+    } else
       alert("Ocorreu um erro ao processar a requisição");
-    
+
   }
 
   xmlhttp.onerror = function () {
@@ -49,16 +54,16 @@ function fecharAlerta() {
 }
 
 function validaCampo(valor, validador) {
-  if (! valor.length) {
+  if (!valor.length) {
     return "campo obrigatório";
-  } else if (validador && ! validador.test(valor)) {
+  } else if (validador && !validador.test(valor)) {
     return "formato inválido";
-  } else 
+  } else
     return "";
 }
 
 function validaForm(e) {
-  let form = e.target; 
+  let form = e.target;
   const spanNome = form.inputNome.nextElementSibling;
   const spanEmail = form.inputEmail.nextElementSibling;
   const spanTelefone = form.inputTelefone.nextElementSibling;
@@ -81,14 +86,14 @@ function validaForm(e) {
   spanTelefone.textContent = validaCampo(form.inputTelefone.value, telefone);
 
   spanCep.textContent = validaCampo(form.inputCep.value, cep);
-  if (! spanCep.textContent && form.inputCep.value.length != 9) 
+  if (!spanCep.textContent && form.inputCep.value.length != 9)
     spanCep.textContent = "formato inválido";
-  
+
   spanLogradouro.textContent = validaCampo(form.inputLogradouro.value);
   spanBairro.textContent = validaCampo(form.inputBairro.value, soLetras);
   spanCidade.textContent = validaCampo(form.inputCidade.value, soLetras);
   spanPeso.textContent = validaCampo(form.inputPeso.value);
   spanAltura.textContent = validaCampo(form.inputAltura.value);
 
-  return(! spanNome.textContent && ! spanEmail.textContent && ! spanTelefone.textContent && ! spanCep.textContent && ! spanLogradouro.textContent && ! spanBairro.textContent && ! spanCidade.textContent && ! spanPeso.textContent && ! spanAltura.textContent);
+  return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent && !spanCidade.textContent && !spanPeso.textContent && !spanAltura.textContent);
 }

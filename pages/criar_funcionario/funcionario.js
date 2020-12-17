@@ -29,10 +29,15 @@ function buscaEndereco(cep) {
         try {
           const { logradouro, bairro, cidade, estado } = JSON.parse(xmlhttp.responseText);
 
-          form.inputLogradouro.value = logradouro;
-          form.inputBairro.value = bairro;
-          form.inputCidade.value = cidade;
-          form.estado.value = estado;
+          if (logradouro !== undefined)
+            form.inputLogradouro.value = logradouro;
+          if (bairro !== undefined)
+            form.inputBairro.value = bairro;
+          if (cidade !== undefined)
+            form.inputCidade.value = cidade;
+          if (estado !== undefined)
+            form.inputEstado.value = estado;
+
         } catch (e) {
           alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
         }
