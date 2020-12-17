@@ -24,6 +24,21 @@
 
     <div class="container">
         <main>
+
+            <?php
+                if(isset($_SESSION["saudacao"]) && $_SESSION["saudacao"]) {
+                    $nome = $_SESSION['nome'];
+                    echo  "<div class='alert alert-success alert-dismissible' role='alert'>";
+                    echo    "<h2>Bem vindo(a) $nome</h2>";
+                    echo <<< HTML
+                        <button type="button" class="btn-close" data-dismiss="alert"></button>
+                    </div> 
+                   HTML;
+                    
+                   $_SESSION["saudacao"] = false;
+                }
+            ?>
+
             <section>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">

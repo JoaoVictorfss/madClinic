@@ -8,6 +8,8 @@ function validaForm(e) {
 
   const spanEmail = form.email.nextElementSibling;
   const spanSenha = form.senha.nextElementSibling;
+  spanEmail.textContent = "";
+  spanSenha.textContent = "";
 
   if (form.email.value === "") {
     spanEmail.textContent = "O email é obrigatório";

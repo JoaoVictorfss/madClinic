@@ -33,6 +33,7 @@
             $_SESSION["nome"]  = $row["nome"];
             $_SESSION["email"] = $email;
             $_SESSION["codigo"] = $row["codigo"];
+            $_SESSION["saudacao"] = true; // exibe mensagem de saudação na página de login
 
             // checa se é médico
             $stmt = $pdo->prepare($sql2);
