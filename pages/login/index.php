@@ -1,6 +1,7 @@
 <?php
   session_start();
-  if(isset($_SESSION["codigo"])) {
+  // caso o usuário já esteja logado redirecionamos ele para a home
+  if(isset($_SESSION["codigo"])) { 
     header("Location: ../home/");
     exit();
   }
@@ -28,9 +29,9 @@
       <div class="loginBox">
         <h3 class="nome mb-4">MAD Clinic</h3>
 
-        <form name="formLogin" class="form" action="./processaLogin.php" method="POST">
+        <form name="formLogin" class="form" action="" method="GET">
           <div class="form-floating">
-            <input class="form-control" type="email" id="email" name="email" placeholder="seu e-mail">
+            <input class="form-control" type="email" id="email" placeholder="seu e-mail">
             <span></span>
             <label for="email">
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -40,18 +41,10 @@
             </label>
           </div>
 
-          <?php
-            if(isset($_GET["email_error"]))
-              echo <<< HTML
-              <div class="alert alert-warning alert-dismissible" role="alert">
-                <strong>Email não encontrado</strong>
-                <button type="button" class="btn-close" data-dismiss="alert"></button>
-              </div>
-              HTML;
-          ?>
+          <div id="email_error_alert"></div>
 
           <div class="form-floating mt-2">
-            <input class="form-control" type="password" id="senha" name="senha" placeholder="sua senha">
+            <input class="form-control" type="password" id="senha" placeholder="sua senha">
             <span></span>
             <label for="senha">
               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -62,15 +55,7 @@
             </label>
           </div>
 
-          <?php
-            if(isset($_GET["password_error"]))
-              echo <<< HTML
-              <div class="alert alert-warning alert-dismissible" role="alert">
-                <strong>Senha inválida</strong>
-                <button type="button" class="btn-close" data-dismiss="alert"></button>
-              </div>
-              HTML;
-          ?>
+          <div id="senha_error_alert"></div>
 
           <div>
             <button type="submit" class="btn btn-primary mt-2">
