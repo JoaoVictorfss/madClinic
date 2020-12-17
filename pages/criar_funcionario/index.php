@@ -1,13 +1,14 @@
 <?php
 session_start();
 
-$url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/criar_funcionario/processaFuncionario.php";
-if (isset($_GET["cadastro"]) && $_SERVER['HTTP_REFERER'] == $url_anterior) $cad = $_GET["cadastro"];
+  // $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/criar_funcionario/processaFuncionario.php";
+  $url_anterior = "http://trabalho-final-ppi-2020-2-mateus-joao.atwebpages.com/Trabalho_final/pages/criar_funcionario/processaFuncionario.php";
+  if (isset($_GET["cadastro"]) && $_SERVER['HTTP_REFERER'] == $url_anterior) $cad = $_GET["cadastro"];
 
-if (!isset($_SESSION["codigo"])) {
-  header("Location: ../home/");
-  exit();
-}
+  if (!isset($_SESSION["codigo"])) {
+    header("Location: ../home/");
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>

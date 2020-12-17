@@ -1,7 +1,8 @@
 <?php
   session_start();
 
-  $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/agendar_consulta/agendarConsulta.php";
+  // $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/agendar_consulta/agendarConsulta.php";
+  $url_anterior = "http://trabalho-final-ppi-2020-2-mateus-joao.atwebpages.com/Trabalho_final/pages/agendar_consulta/agendarConsulta.php";
   if (isset($_GET["cadastro"]) && $_SERVER['HTTP_REFERER'] == $url_anterior) $cad = $_GET["cadastro"];
 
   require "../../config/conexaoMysql.php";
@@ -17,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
     <?php
     include "../../templates/includes.php";
     ?>
@@ -36,26 +38,27 @@
         <h2>Agendamento</h2>
         <form name="formConsulta" class="row g-2" action="./agendarConsulta.php" method="POST">
           <div class="col-md-4 form-floating ">
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
             <span></span>
             <label for="nome">Nome</label>
           </div>
 
           <div class="col-md-4 form-floating ">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
             <span></span>
             <label for="email">Email</label>
           </div>
 
-          <div class="col-md-4 form-floating ">
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+          <div class="col-md-4 form-floating">
+            <input type="tel" class="form-control" id="telefone" name="telefone"
+             placeholder="Telefone">
             <span></span>
             <label for="telefone">Telefone</label>
           </div>
 
           <div class="col-md-6 form-floating ">
-            <select class="form-select" id="especialidade" required>
-              <option disabled selected></option>
+            <select class="form-select" id="especialidade" name="especialidade">
+              <option disabled selected value=""></option>
               <?php
 
                 $sql = <<< SQL
@@ -74,27 +77,26 @@
 
               ?>
             </select>
+            <span></span>
             <label for="especialidade" class="form-label">Especialidade</label>
           </div>
 
           <div class="col-md-6 form-floating ">
-            <select class="form-select" id="medico" name="medico" required>
-            </select>
+            <select class="form-select" id="medico" name="medico"></select>
+            <span></span>
             <label for="medico" class="form-label">Médico</label>
           </div>
 
           <div class="col-md-6 form-floating">
             <input type="date" class="form-control" id="data_agendamento"
-             name="data_agendamento" placeholder="Data" min=<?php echo date('Y-m-d'); ?>
-             required
-            >
+             name="data_agendamento" placeholder="Data" min=<?php echo date('Y-m-d'); ?>>
             <span></span>
             <label for="data_agendamento">Data</label>
           </div>
 
           <div class="col-md-6 form-floating">
-            <select class="form-select" id="hora" name="hora" required>
-            </select>
+            <select class="form-select" id="hora" name="hora"></select>
+            <span></span>
             <label for="hora" class="form-label">Hora</label>
           </div>
 

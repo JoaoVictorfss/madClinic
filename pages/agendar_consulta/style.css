@@ -1,0 +1,6 @@
+form select ~ span {
+  margin-left: 8px;
+  margin-top: 3px;
+  color: #f14f4f;
+  font-size: 14px;
+}

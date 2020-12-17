@@ -10,7 +10,7 @@ window.onload = function () {
   document.forms.formConsulta.onsubmit = validaForm;
 
   const fechar = document.getElementById("fechar");
-  if (fechar) 
+  if (fechar)
     fechar.addEventListener("click", fecharAlerta);
 };
 
@@ -19,11 +19,11 @@ function fecharAlerta() {
 }
 
 function validaCampo(valor, validador) {
-  if (! valor.length) {
+  if (!valor.length) {
     return "campo obrigatório";
-  } else if (validador && ! validador.test(valor)) {
+  } else if (validador && !validador.test(valor)) {
     return "formato inválido";
-  } else 
+  } else
     return "";
 }
 
@@ -33,6 +33,10 @@ function validaForm(e) {
   const spanNome = form.nome.nextElementSibling;
   const spanEmail = form.email.nextElementSibling;
   const spanTelefone = form.telefone.nextElementSibling;
+  const spanEspecialidade = form.especialidade.nextElementSibling;
+  const spanMedico = form.medico.nextElementSibling;
+  const spanDataAgendamento = form.data_agendamento.nextElementSibling;
+  const spanHora = form.hora.nextElementSibling;
 
   // regex para validar entrada
   const telefone = /\(\d{2}\)\d{4,5}-?\d{4}/;
@@ -42,8 +46,14 @@ function validaForm(e) {
   spanNome.textContent = validaCampo(form.nome.value, soLetras);
   spanEmail.textContent = validaCampo(form.email.value);
   spanTelefone.textContent = validaCampo(form.telefone.value, telefone);
+  spanEspecialidade.textContent = validaCampo(form.especialidade.value, soLetras);
+  spanMedico.textContent = validaCampo(form.medico.value, soLetras);
+  spanDataAgendamento.textContent = validaCampo(form.data_agendamento);
+  spanHora.textContent = validaCampo(form.hora.value);
 
-  return(! spanNome.textContent && ! spanEmail.textContent && ! spanTelefone.textContent);
+  return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent
+    && !spanEspecialidade.textContent && !spanMedico.textContent && !spanDataAgendamento.textContent
+    && !spanHora.textContent);
 }
 
 function resetDate() {
@@ -79,8 +89,8 @@ function carregarMedicos(e) {
       } else {
         alert("Não foram encontrados médicos com essa especialidade");
       }
-    } else 
-      alert("Ocorreu um erro ao processar a requisição");  
+    } else
+      alert("Ocorreu um erro ao processar a requisição");
   };
 
   xmlhttp.onerror = function () {
@@ -117,9 +127,9 @@ function carregarHorarios(e) {
       } else {
         alert("Não foram encontrados horários disponíveis");
       }
-    } else 
+    } else
       alert("Ocorreu um erro ao processar a requisição");
-    
+
   };
 
   xmlhttp.onerror = function () {
