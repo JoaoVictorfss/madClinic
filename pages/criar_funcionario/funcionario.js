@@ -5,7 +5,7 @@ window.onload = function () {
   tipo.addEventListener("change", tipoFuncionario);
 
   const fechar = document.getElementById("fechar");
-  if (fechar) 
+  if (fechar)
     fechar.addEventListener("click", fecharAlerta);
 
   const cep = document.getElementById("inputCEP");
@@ -27,7 +27,7 @@ function buscaEndereco(cep) {
     if (xmlhttp.status == 200) {
       if (xmlhttp.responseText != "") {
         try {
-          const {logradouro, bairro, cidade, estado} = JSON.parse(xmlhttp.responseText);
+          const { logradouro, bairro, cidade, estado } = JSON.parse(xmlhttp.responseText);
 
           form.inputLogradouro.value = logradouro;
           form.inputBairro.value = bairro;
@@ -37,7 +37,7 @@ function buscaEndereco(cep) {
           alert("A string retornada não é um JSON válido: " + xmlhttp.responseText);
         }
       }
-    } else 
+    } else
       alert("Ocorreu um erro ao processar a requisição");
   };
 
@@ -66,11 +66,11 @@ function tipoFuncionario(e) {
 }
 
 function validaCampo(valor, validador) {
-  if (! valor.length) {
+  if (!valor.length) {
     return "campo obrigatório";
-  } else if (validador && ! validador.test(valor)) {
+  } else if (validador && !validador.test(valor)) {
     return "formato inválido";
-  } else 
+  } else
     return "";
 }
 
@@ -106,11 +106,11 @@ function validaForm(e) {
   spanSalario.textContent = validaCampo(form.inputSalario.value);
 
   spanCep.textContent = validaCampo(form.inputCEP.value, cep);
-  if (! spanCep.textContent && form.inputCEP.value.length != 9) 
+  if (!spanCep.textContent && form.inputCEP.value.length != 9)
     spanCep.textContent = "formato inválido";
 
   spanSenha.textContent = validaCampo(form.inputSenha.value);
-  if (! spanSenha.textContent && form.inputSenha.value.length <= 6) 
+  if (!spanSenha.textContent && form.inputSenha.value.length <= 6)
     spanSenha.textContent = "senha pequena";
 
   // validação do input de especialidade do médico
@@ -122,5 +122,5 @@ function validaForm(e) {
     spanCrm.textContent = "";
   }
 
-  return(! spanNome.textContent && ! spanEmail.textContent && ! spanTelefone.textContent && ! spanCep.textContent && ! spanLogradouro.textContent && ! spanBairro.textContent && ! spanCidade.textContent && ! spanDataInicio.textContent && ! spanSalario.textContent && ! spanSenha.textContent && ! spanCrm.textContent && ! spanEspecialidade.textContent);
+  return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent && !spanCep.textContent && !spanLogradouro.textContent && !spanBairro.textContent && !spanCidade.textContent && !spanDataInicio.textContent && !spanSalario.textContent && !spanSenha.textContent && !spanCrm.textContent && !spanEspecialidade.textContent);
 }

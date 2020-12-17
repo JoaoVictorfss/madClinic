@@ -37,7 +37,8 @@
       <h2>Endereço</h2>
       <form name="formEndereco" class="row g-2" action="./processaEndereco.php" method="POST">
         <div class="col-md-4 form-floating ">
-          <input type="text" class="form-control" id="inputCEP" name="inputCEP" placeholder="seu cep">
+          <input type="text" class="form-control" id="inputCEP" name="inputCEP"
+           placeholder="seu cep" title="xxxxx-xxx">
           <span></span>
           <label for="inputCEP">CEP</label>
         </div>

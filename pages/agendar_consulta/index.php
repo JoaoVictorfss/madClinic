@@ -51,7 +51,7 @@
 
           <div class="col-md-4 form-floating">
             <input type="tel" class="form-control" id="telefone" name="telefone"
-             placeholder="Telefone">
+             placeholder="Telefone" title="(xx)xxxx-xxxx">
             <span></span>
             <label for="telefone">Telefone</label>
           </div>
@@ -82,7 +82,8 @@
           </div>
 
           <div class="col-md-6 form-floating ">
-            <select class="form-select" id="medico" name="medico"></select>
+            <select class="form-select" id="medico" name="medico">
+            </select>
             <span></span>
             <label for="medico" class="form-label">Médico</label>
           </div>
@@ -95,7 +96,9 @@
           </div>
 
           <div class="col-md-6 form-floating">
-            <select class="form-select" id="hora" name="hora"></select>
+            <select class="form-select" id="hora" name="hora">
+              <option disabled selected value=""></option>
+            </select>
             <span></span>
             <label for="hora" class="form-label">Hora</label>
           </div>

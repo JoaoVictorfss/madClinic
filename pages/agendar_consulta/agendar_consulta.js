@@ -47,8 +47,8 @@ function validaForm(e) {
   spanEmail.textContent = validaCampo(form.email.value);
   spanTelefone.textContent = validaCampo(form.telefone.value, telefone);
   spanEspecialidade.textContent = validaCampo(form.especialidade.value, soLetras);
-  spanMedico.textContent = validaCampo(form.medico.value, soLetras);
-  spanDataAgendamento.textContent = validaCampo(form.data_agendamento);
+  spanMedico.textContent = validaCampo(form.medico.value);
+  spanDataAgendamento.textContent = validaCampo(form.data_agendamento.value);
   spanHora.textContent = validaCampo(form.hora.value);
 
   return (!spanNome.textContent && !spanEmail.textContent && !spanTelefone.textContent

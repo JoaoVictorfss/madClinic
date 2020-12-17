@@ -50,13 +50,15 @@
         </div>
 
         <div class="col-md-2 form-floating">
-          <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone" placeholder="seu telefone">
+          <input type="tel" class="form-control" name="inputTelefone" id="inputTelefone"
+           placeholder="seu telefone" title="(xx)xxxx-xxxx">
           <span></span>
           <label for="inputTelefone">Telefone</label>
         </div>
 
         <div class="col-md-4 form-floating ">
-          <input type="text" class="form-control" id="inputCep" name="inputCep" placeholder="seu cep">
+          <input type="text" class="form-control" id="inputCep" name="inputCep"
+           placeholder="seu cep" title="xxxxx-xxx">
           <span></span>
           <label for="inputCep">CEP</label>
         </div>
