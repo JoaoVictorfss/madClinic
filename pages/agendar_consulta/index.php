@@ -1,8 +1,7 @@
 <?php
   session_start();
 
-  // $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/agendar_consulta/agendarConsulta.php";
-  $url_anterior = "http://trabalho-final-ppi-2020-2-mateus-joao.atwebpages.com/Trabalho_final/pages/agendar_consulta/agendarConsulta.php";
+  $url_anterior = "http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/agendar_consulta/agendarConsulta.php";
   if (isset($_GET["cadastro"]) && $_SERVER['HTTP_REFERER'] == $url_anterior) $cad = $_GET["cadastro"];
 
   require "../../config/conexaoMysql.php";

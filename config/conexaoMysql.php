@@ -2,10 +2,10 @@
 
 function mysqlConnect()
 {
-  $db_host = "fdb30.awardspace.net";
-  $db_username = "3634639_abc";
-  $db_password = "PBnSip#VNKA4yDs";
-  $db_name = "3634639_abc";
+  $db_host = "";
+  $db_username = "";
+  $db_password = "";
+  $db_name = "";
 
   $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
 
