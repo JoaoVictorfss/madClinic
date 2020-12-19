@@ -1,8 +1,5 @@
-<p align="center">
-<img src="https://github.com/JoaoVictorfss/madClinic/blob/master/images/mad-clinic_logo.png" width=20%>
-</p>
 
-<h1 align="center"> MadClininc </h1>
+<h1 align="center"> MadClinic </h1>
 
 <p align="center">
   <p align="center">
@@ -61,7 +58,7 @@
 
 
 ## Deploy da Aplicação Web :dash:
-<a href="https://github.com/MateusFerreiraSilva/">MadClinic</a>
+<a href="http://joaovictorprojects.atwebpages.com/Trabalho_Final_PPI/pages/home/">MadClinic</a>
 
 ## Tecnologias e dependências
   - JavaScript
