@@ -12,7 +12,7 @@
 </p>
 </p>
 
-> Status do Projeto: Concluido :heavy_check_mark:
+> Status do Projeto: Concluído :heavy_check_mark:
 
 ### Tópicos 
 
